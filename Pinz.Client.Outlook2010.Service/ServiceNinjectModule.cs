@@ -10,7 +10,7 @@ namespace Pinz.Client.Outlook2010.Service
     {
         public override void Load()
         {
-            Kernel.Load(new ServiceConsumerNinjectModule());
+            //Kernel.Load(new ServiceConsumerNinjectModule());
 
             Kernel.Bind<ITaskWpfService>().To<TaskOrchestratingService>().InSingletonScope();
         }

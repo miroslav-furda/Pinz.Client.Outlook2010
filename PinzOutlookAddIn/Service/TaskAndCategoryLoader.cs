@@ -93,21 +93,24 @@ namespace PinzOutlookAddIn.Service
 
         private TaskPriority? ToTaskPriority(string strPriority)
         {
-            TaskPriority? retVal;
-            switch (strPriority.ToLower())
+            TaskPriority? retVal = null;
+            if (!String.IsNullOrEmpty(strPriority))
             {
-                case "low":
-                    retVal = TaskPriority.Low;
-                    break;
-                case "normal":
-                    retVal = TaskPriority.Normal;
-                    break;
-                case "high":
-                    retVal = TaskPriority.High;
-                    break;
-                default:
-                    retVal = null;
-                    break;
+                switch (strPriority.ToLower())
+                {
+                    case "low":
+                        retVal = TaskPriority.Low;
+                        break;
+                    case "normal":
+                        retVal = TaskPriority.Normal;
+                        break;
+                    case "high":
+                        retVal = TaskPriority.High;
+                        break;
+                    default:
+                        retVal = null;
+                        break;
+                }
             }
             return retVal;
         }

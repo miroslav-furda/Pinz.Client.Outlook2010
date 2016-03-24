@@ -53,7 +53,7 @@
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab1.Groups.Add(this.groupStart);
             this.tab1.Groups.Add(this.groupFilter);
-            this.tab1.Label = "oProductivity";
+            this.tab1.Label = "Pinz";
             this.tab1.Name = "tab1";
             // 
             // groupStart

@@ -162,8 +162,8 @@
       <HintPath>..\packages\Pinz.Client.DomainModel.0.1.0.0\lib\net452\Pinz.Client.DomainModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pinz.Client.ServiceConsumer, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.ServiceConsumer.0.1.1.0\lib\net452\Pinz.Client.ServiceConsumer.dll</HintPath>
+    <Reference Include="Pinz.Client.ServiceConsumer, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pinz.Client.ServiceConsumer.0.1.2.0\lib\net452\Pinz.Client.ServiceConsumer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.Commons, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -174,8 +174,8 @@
       <HintPath>..\packages\Pinz.DomainModel.0.1.0.0\lib\net452\Pinz.DomainModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pinz.WpfClient.Module.TaskManager, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.WpfClient.Module.TaskManager.0.1.0.0\lib\net452\Pinz.WpfClient.Module.TaskManager.dll</HintPath>
+    <Reference Include="Pinz.WpfClient.Module.TaskManager, Version=0.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pinz.WpfClient.Module.TaskManager.0.1.3.0\lib\net452\Pinz.WpfClient.Module.TaskManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -339,6 +339,10 @@
     <Content Include="Themes\Office2010Blue\HowToApplyTheme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Pinz.Client.Outlook.MainPage\Pinz.Client.Outlook.MainPage.csproj">
+      <Project>{089dd68c-9516-429d-84ce-8c9fb6fb75cf}</Project>
+      <Name>Pinz.Client.Outlook.MainPage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pinz.Client.Outlook2010.Service\Pinz.Client.Outlook2010.Service.csproj">
       <Project>{5f21d246-142d-4169-b129-521cfc5be205}</Project>
       <Name>Pinz.Client.Outlook2010.Service</Name>

@@ -10,10 +10,12 @@ using System.Globalization;
 using Com.Pinz.Commons.Client.Prism.NinjectExtension;
 using PinzOutlookAddIn.Ribbon;
 using PinzOutlookAddIn.Infrastructure;
-using Com.Pinz.WpfClient.Module.TaskManager;
 using Pinz.Client.Outlook2010.Service;
 using Pinz.Client.Outlook2010.Service.OutlookService;
 using Pinz.Client.Outlook2010.Service.OutlookModel;
+using Pinz.Client.Outlook.MainPage;
+using Com.Pinz.WpfClient.Module.TaskManager;
+using Com.Pinz.Client.ServiceConsumer;
 
 namespace PinzOutlookAddIn
 {
@@ -59,14 +61,16 @@ namespace PinzOutlookAddIn
             base.ConfigureModuleCatalog();
             ModuleCatalog moduleCatalog = (ModuleCatalog)this.ModuleCatalog;
             moduleCatalog.AddModule(typeof(TaskManagerModule));
+            moduleCatalog.AddModule(typeof(MainPageModule));
         }
 
         protected override void ConfigureKernel()
         {
             base.ConfigureKernel();
-            
-            this.Kernel.Load(new TaskManagerNinjectModule());
+
+            this.Kernel.Load(new ServiceConsumerNinjectModule());
             this.Kernel.Load(new ServiceNinjectModule());
+            this.Kernel.Load(new MainPageNinjectModule());
 
             Kernel.Bind<TaskFilter>().ToSelf().InSingletonScope();
             this.Kernel.Bind<IRibbonController>().To<DefaultRibbonController>();
