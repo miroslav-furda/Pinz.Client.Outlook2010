@@ -56,7 +56,13 @@ namespace PinzOutlookAddIn.Service
 
         public List<Task> ReadAllTasksByCategory(Category category)
         {
-            return taskAndCategoryLoader.Tasks.Cast<Task>().ToList();
+            List<Task> tasksInCategory = new List<Task>();
+            taskAndCategoryLoader.Tasks.ForEach(item =>
+            {
+                if (category.Equals(item.Category))
+                    tasksInCategory.Add(item);
+            });
+            return tasksInCategory;
         }
 
         #endregion

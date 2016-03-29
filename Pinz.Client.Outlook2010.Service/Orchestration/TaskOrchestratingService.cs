@@ -8,6 +8,7 @@ using Ninject;
 using Com.Pinz.Client.ServiceConsumer.Service;
 using Pinz.Client.Outlook2010.Service.OutlookService;
 using System.Linq;
+using Pinz.Client.Outlook2010.Service.OutlookModel;
 
 namespace Pinz.Client.Outlook2010.Service.Orchestration
 {
@@ -19,12 +20,14 @@ namespace Pinz.Client.Outlook2010.Service.Orchestration
 
         private ITaskRemoteService taskRemoteService;
         private ITaskOutlookService taskOutlookService;
+        private TaskFilter filter;
 
         [Inject]
-        public TaskOrchestratingService(ITaskRemoteService taskRemoteService, ITaskOutlookService taskOutlookService)
+        public TaskOrchestratingService(ITaskRemoteService taskRemoteService, ITaskOutlookService taskOutlookService, TaskFilter filter)
         {
             this.taskRemoteService = taskRemoteService;
             this.taskOutlookService = taskOutlookService;
+            this.filter = filter;
 
             projectsObservable = new ObservableCollection<Project>();
             categoriesMap = new Dictionary<Project, ObservableCollection<Category>>();
@@ -32,6 +35,7 @@ namespace Pinz.Client.Outlook2010.Service.Orchestration
 
             taskOutlookService.TaskAdd += TaskOutlookService_TaskAdd;
             taskOutlookService.TaskRemove += TaskOutlookService_TaskRemove;
+            filter.PropertyChanged += TaskFilter_PropertyChanged;
         }
 
 
@@ -77,7 +81,12 @@ namespace Pinz.Client.Outlook2010.Service.Orchestration
             {
                 taskList = taskRemoteService.ReadAllTasksByCategory(category);
             }
-            taskList.ForEach(tasks.Add);
+
+            taskList.ForEach(item =>
+            {
+                if (FilterTasks(item))
+                    tasks.Add(item);
+            });
 
             return tasks;
         }
@@ -209,6 +218,44 @@ namespace Pinz.Client.Outlook2010.Service.Orchestration
             ObservableCollection<Task> tasks = loadObservableCollection(category, tasksMap);
             if (!tasks.Contains(task))
                 tasks.Add(task);
+        }
+        #endregion
+
+
+        #region private Filter
+
+        private void TaskFilter_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            foreach (Category category in tasksMap.Keys)
+            {
+                ReadAllTasksByCategory(category);
+            }
+        }
+
+        private bool FilterTasks(Task taskitem)
+        {
+            bool retval = true;
+
+            if (!filter.Complete)
+            {
+                retval = taskitem.IsComplete.Equals(false);
+            }
+
+            if (retval && filter.DueToday)
+            {
+                System.DateTime today = System.DateTime.Today;
+                retval = taskitem.DueDate.Equals(today);
+            }
+
+            if (retval && filter.InProgress)
+            {
+                retval = taskitem.Status.Equals(TaskStatus.TaskInProgress);
+                if (filter.NotStarted)
+                {
+                    retval = taskitem.Status.Equals(TaskStatus.TaskNotStarted);
+                }
+            }
+            return retval;
         }
         #endregion
 
