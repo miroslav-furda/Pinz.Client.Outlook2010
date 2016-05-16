@@ -1,22 +1,19 @@
-﻿using Pinz.Client.Outlook2010.Service.OutlookService;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Com.Pinz.Client.DomainModel.Model;
-using Com.Pinzonline.DomainModel;
-using Pinz.Client.Outlook2010.Service.OutlookModel;
 using Ninject;
 using Outlook = Microsoft.Office.Interop.Outlook;
+using Com.Pinz.Client.Outlook.Service.DAO;
+using Com.Pinz.Client.Outlook.Service.Model;
 
 namespace PinzOutlookAddIn.Service
 {
-    internal class TaskOutlookServiceImpl : ITaskOutlookService
+    internal class TaskOutlookServiceImpl
     {
         public event TaskEvents_TaskAddEventHandler TaskAdd;
         public event TaskEvents_TaskChangeEventHandler TaskChange;
         public event TaskEvents_TaskRemoveEventHandler TaskRemove;
 
-        private static OutlookProject defaultProject;
 
         private TaskAndCategoryLoader taskAndCategoryLoader;
         private Outlook.Application outlookApp;
@@ -28,12 +25,6 @@ namespace PinzOutlookAddIn.Service
             this.outlookApp = outlookApp;
             this.taskAndCategoryLoader = taskAndCategoryLoader;
 
-            defaultProject = new OutlookProject()
-            {
-                ProjectId = Guid.NewGuid(),
-                Name = Properties.Resources.Outlook_Default_Project
-            };
-
             Outlook.MAPIFolder outlookTasksFolder = outlookApp.Session.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderTasks);
             outlookItems = outlookTasksFolder.Items;
 
@@ -44,19 +35,14 @@ namespace PinzOutlookAddIn.Service
 
         #region Read
 
-        public Project ReadProjectOutlookDefault()
+        public List<OutlookCategory> ReadAllCategories()
         {
-            return defaultProject;
+            return taskAndCategoryLoader.Categories;
         }
 
-        public List<Category> ReadAllCategoriesByProject(Project project)
+        public List<OutlookTask> ReadAllTasksByCategory(OutlookCategory category)
         {
-            return taskAndCategoryLoader.Categories.Cast<Category>().ToList();
-        }
-
-        public List<Task> ReadAllTasksByCategory(Category category)
-        {
-            List<Task> tasksInCategory = new List<Task>();
+            List<OutlookTask> tasksInCategory = new List<OutlookTask>();
             taskAndCategoryLoader.Tasks.ForEach(item =>
             {
                 if (category.Equals(item.Category))
@@ -67,7 +53,7 @@ namespace PinzOutlookAddIn.Service
 
         #endregion
 
-        public void ChangeTaskStatus(Task task, TaskStatus newStatus)
+        public void ChangeTaskStatus(OutlookTask task, TaskStatus newStatus)
         {
             switch (newStatus)
             {
@@ -94,7 +80,7 @@ namespace PinzOutlookAddIn.Service
             UpdateTask(task);
         }
 
-        public void MoveTaskToCategory(Task task, Category category)
+        public void MoveTaskToCategory(OutlookTask task, OutlookCategory category)
         {
             OutlookTask outlookTask = task as OutlookTask;
             if (outlookTask.Category != category)
@@ -106,26 +92,25 @@ namespace PinzOutlookAddIn.Service
 
         #region Category CUD
 
-        public Category CreateCategoryInProject(Project project)
+        public OutlookCategory CreateCategory()
         {
             OutlookCategory category = new OutlookCategory()
             {
-                CategoryId = Guid.NewGuid(),
                 Name = Properties.Resources.Outlook_Category_New
             };
             taskAndCategoryLoader.Categories.Add(category);
             return category;
         }
 
-        public void DeleteCategory(Category category)
+        public void DeleteCategory(OutlookCategory category)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateCategory(Category category)
+        public void UpdateCategory(OutlookCategory category)
         {
             IEnumerable<OutlookTask> tasksinCategory = taskAndCategoryLoader.Tasks.Where<OutlookTask>(task => task.Category != null && task.Category.Equals(category));
-            foreach (Task task in tasksinCategory)
+            foreach (OutlookTask task in tasksinCategory)
             {
                 UpdateTask(task);
             }
@@ -134,11 +119,11 @@ namespace PinzOutlookAddIn.Service
 
         #region Task CUD
 
-        public Task CreateTaskInCategory(Category category)
+        public OutlookTask CreateTaskInCategory(OutlookCategory category)
         {
             OutlookTask task = new OutlookTask()
             {
-                CategoryId = category.CategoryId,
+                Category = category,
                 TaskName = Properties.Resources.Outlook_Task_New,
                 IsComplete = false,
                 CreationTime = DateTime.Now,
@@ -153,14 +138,14 @@ namespace PinzOutlookAddIn.Service
             return task;
         }
 
-        public void DeleteTask(Task task)
+        public void DeleteTask(OutlookTask task)
         {
             OutlookTask outlookTask = task as OutlookTask;
             Outlook.TaskItem taskitem = outlookApp.Session.GetItemFromID(outlookTask.EntryId) as Outlook.TaskItem;
             taskitem.Delete();
         }
 
-        public void UpdateTask(Task task)
+        public void UpdateTask(OutlookTask task)
         {
             OutlookTask outlookTask = task as OutlookTask;
             Outlook.TaskItem taskitem = outlookApp.Session.GetItemFromID(outlookTask.EntryId) as Outlook.TaskItem;
@@ -199,7 +184,7 @@ namespace PinzOutlookAddIn.Service
                 OutlookTask taskToDelete = toDeleteSubset.ElementAt(index);
                 taskAndCategoryLoader.Tasks.Remove(taskToDelete);
                 if (TaskRemove != null)
-                    TaskRemove(taskToDelete, taskToDelete.Category);
+                    TaskRemove(taskToDelete);
             }
         }
 
@@ -212,7 +197,7 @@ namespace PinzOutlookAddIn.Service
 
                 taskAndCategoryLoader.Tasks.Add(newTask);
                 if (TaskAdd != null)
-                    TaskAdd(newTask, newTask.Category);
+                    TaskAdd(newTask);
             }
         }
 

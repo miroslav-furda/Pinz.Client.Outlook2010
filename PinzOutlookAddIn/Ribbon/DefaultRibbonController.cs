@@ -1,6 +1,6 @@
-﻿using Microsoft.Office.Tools;
+﻿using Com.Pinz.Client.Commons.Model;
+using Microsoft.Office.Tools;
 using Ninject;
-using Pinz.Client.Outlook2010.Service.OutlookModel;
 
 namespace PinzOutlookAddIn.Ribbon
 {

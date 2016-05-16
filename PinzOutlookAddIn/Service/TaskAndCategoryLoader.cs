@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using Ninject;
 using System;
 using System.Linq;
-using Com.Pinz.Client.DomainModel.Model;
-using Pinz.Client.Outlook2010.Service.OutlookModel;
-using Com.Pinzonline.DomainModel;
+using Com.Pinz.Client.Outlook.Service.Model;
 
 namespace PinzOutlookAddIn.Service
 {
@@ -47,7 +45,7 @@ namespace PinzOutlookAddIn.Service
         }
 
 
-        public Task UpdateTask(OutlookTask TargetTask, Outlook.TaskItem SourceTaskItem, ICollection<OutlookCategory> categories, OutlookCategory defaultCategory)
+        public OutlookTask UpdateTask(OutlookTask TargetTask, Outlook.TaskItem SourceTaskItem, ICollection<OutlookCategory> categories, OutlookCategory defaultCategory)
         {
             OutlookCategory category = categories.Where(x => x.Name.Equals(SourceTaskItem.Categories)).SingleOrDefault();
             if (category == null)
@@ -66,7 +64,7 @@ namespace PinzOutlookAddIn.Service
             TargetTask.DueDate = (SourceTaskItem.DueDate.Year == 4501 ? (DateTime?)null : SourceTaskItem.DueDate);
             TargetTask.ActualWork = SourceTaskItem.ActualWork;
             TargetTask.Status = fromOutlookStatus(SourceTaskItem.Status);
-            TargetTask.Priority = ToTaskPriority(SourceTaskItem.SchedulePlusPriority);
+            TargetTask.Priority = SourceTaskItem.SchedulePlusPriority;
             TargetTask.Category = category;
 
             return TargetTask;
@@ -85,44 +83,10 @@ namespace PinzOutlookAddIn.Service
             targetOutloookTaskItem.ActualWork = sourceTask.ActualWork;
 
             targetOutloookTaskItem.Status = toOutlookStatus(sourceTask.Status);
-            targetOutloookTaskItem.SchedulePlusPriority = FromTaskPriority(sourceTask.Priority);
+            targetOutloookTaskItem.SchedulePlusPriority = sourceTask.Priority;
             targetOutloookTaskItem.Categories = sourceTask.Category.Name;
 
             return targetOutloookTaskItem;
-        }
-
-        private TaskPriority? ToTaskPriority(string strPriority)
-        {
-            TaskPriority? retVal = null;
-            if (!String.IsNullOrEmpty(strPriority))
-            {
-                switch (strPriority.ToLower())
-                {
-                    case "low":
-                        retVal = TaskPriority.Low;
-                        break;
-                    case "normal":
-                        retVal = TaskPriority.Normal;
-                        break;
-                    case "high":
-                        retVal = TaskPriority.High;
-                        break;
-                    default:
-                        retVal = null;
-                        break;
-                }
-            }
-            return retVal;
-        }
-
-        private string FromTaskPriority(TaskPriority? priority)
-        {
-            string retVal = null;
-            if (priority != null)
-            {
-                retVal = priority.ToString().ToLower();
-            }
-            return retVal;
         }
 
         private TaskStatus fromOutlookStatus(Outlook.OlTaskStatus status)

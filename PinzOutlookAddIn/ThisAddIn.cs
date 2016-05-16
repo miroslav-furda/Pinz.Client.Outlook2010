@@ -19,7 +19,13 @@ namespace PinzOutlookAddIn
             System.Windows.Forms.Application.Idle -= OnIdle;
 
             _bootstrapper = new ApplicationBootstrapper(this.Application, this.CustomTaskPanes, Globals.Ribbons, Globals.FormRegions, mainRibbon);
-            _bootstrapper.Run();
+
+            try {
+                _bootstrapper.Run();
+            }catch(Exception ex)
+            {
+                ex.ToString();
+            }
         }
 
         protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
