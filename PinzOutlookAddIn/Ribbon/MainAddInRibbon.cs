@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Office.Tools.Ribbon;
+using Prism.Regions;
+using Com.Pinz.Client.Commons;
 
 namespace PinzOutlookAddIn
 {
@@ -47,6 +46,15 @@ namespace PinzOutlookAddIn
         {
             RibbonCheckBox checkBox = (RibbonCheckBox)sender;
             this.controller.showInProgress(checkBox.Checked);
+        }
+
+        private void adminToggleButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            RibbonToggleButton button = sender as RibbonToggleButton;
+            if (button.Checked)
+                controller.NavigateToPinzAdministration();
+            else
+                controller.NavigateToPinzTasks();
         }
     }
 }

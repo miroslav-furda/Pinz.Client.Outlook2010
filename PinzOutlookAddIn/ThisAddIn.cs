@@ -1,15 +1,19 @@
 ﻿using System;
 using Microsoft.Office.Tools.Ribbon;
+using Common.Logging;
 
 namespace PinzOutlookAddIn
 {
     public partial class ThisAddIn
     {
+        private static readonly ILog Log = LogManager.GetLogger<ThisAddIn>();
+
         private ApplicationBootstrapper _bootstrapper;
         private MainAddInRibbon mainRibbon;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            Log.Debug("ThisAddIn_Startup...");
             // Optimisation for better performance
             System.Windows.Forms.Application.Idle += OnIdle;
         }
@@ -19,13 +23,7 @@ namespace PinzOutlookAddIn
             System.Windows.Forms.Application.Idle -= OnIdle;
 
             _bootstrapper = new ApplicationBootstrapper(this.Application, this.CustomTaskPanes, Globals.Ribbons, Globals.FormRegions, mainRibbon);
-
-            try {
-                _bootstrapper.Run();
-            }catch(Exception ex)
-            {
-                ex.ToString();
-            }
+            _bootstrapper.Run();
         }
 
         protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
@@ -52,7 +50,7 @@ namespace PinzOutlookAddIn
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
-        
+
         #endregion
     }
 }

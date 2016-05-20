@@ -7,6 +7,10 @@ namespace PinzOutlookAddIn.Ribbon
 {
     public interface IRibbonController
     {
+        void NavigateToPinzAdministration();
+        void NavigateToPinzTasks();
+
+
         void showMainTaskPane();
         void showFinished(bool finished);
         void showDueToday(bool finished);

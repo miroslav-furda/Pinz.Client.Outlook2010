@@ -21,12 +21,14 @@ using Ninject.Activation;
 using Com.Pinz.Client.DomainModel;
 using Com.Pinz.Client.RemoteServiceConsumer;
 using System;
-using System.Diagnostics;
+using Common.Logging;
 
 namespace PinzOutlookAddIn
 {
     public class ApplicationBootstrapper : NinjectBootstrapper
     {
+        private static readonly ILog Log = LogManager.GetLogger<ApplicationBootstrapper>();
+
         private OutlookInterop.Application application;
         private CustomTaskPaneCollection customTaskPaneCollection;
         private RibbonCollectionBase thisRibbonCollection;
@@ -46,8 +48,6 @@ namespace PinzOutlookAddIn
         protected override DependencyObject CreateShell()
         {
             EnsureApplicationResources();
-
-            Trace.TraceInformation("runnung");
             return this.Kernel.Get<Shell>();
         }
 
@@ -75,6 +75,8 @@ namespace PinzOutlookAddIn
             moduleCatalog.AddModule(typeof(LoginModule));
             moduleCatalog.AddModule(typeof(TaskManagerModule));
             moduleCatalog.AddModule(typeof(AdministrationModule));
+
+            moduleCatalog.Load();
         }
 
         protected override void ConfigureKernel()
@@ -82,7 +84,7 @@ namespace PinzOutlookAddIn
             base.ConfigureKernel();
 
             Kernel.Bind<IRibbonController>().To<DefaultRibbonController>();
-            Kernel.Bind<Shell>().ToSelf();
+            Kernel.Bind<Shell>().ToSelf().InSingletonScope();
 
             //Kernel.Bind<Service.DAO.TaskAndCategoryLoader>().ToSelf().InSingletonScope();
             //Kernel.Bind<ITaskDAO>().To<Service.DAO.OutlookTaskDAO>().InSingletonScope();
@@ -95,6 +97,7 @@ namespace PinzOutlookAddIn
             Kernel.Bind<CustomTaskPane>().ToMethod(context => createMainTaskPane()).InSingletonScope();
 
             Kernel.Load(new MainNinjectModule());
+            Kernel.Load(new AdministrationNinjectModule());
             Kernel.Load(new TaskManagerNinjectModule());
             Kernel.Load(new ServiceConsumerNinjectModule());
             Kernel.Load(new LoginNinjectModule());
@@ -146,9 +149,9 @@ namespace PinzOutlookAddIn
                             new Uri("Pinz.Client.Commons;component/Themes/PinzResourceDictionary.xaml", UriKind.Relative)) as ResourceDictionary;
                     Application.Current.Resources.MergedDictionaries.Add(rd);
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    e.ToString();
+                    Log.Error("Fialed to load application resources!", ex);
                 }
             }
         }

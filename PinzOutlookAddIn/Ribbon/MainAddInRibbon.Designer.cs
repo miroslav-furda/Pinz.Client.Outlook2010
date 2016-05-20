@@ -36,16 +36,19 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.groupStart = this.Factory.CreateRibbonGroup();
-            this.showButton = this.Factory.CreateRibbonButton();
             this.groupFilter = this.Factory.CreateRibbonGroup();
             this.checkBoxFinished = this.Factory.CreateRibbonCheckBox();
             this.checkBoxDueToday = this.Factory.CreateRibbonCheckBox();
             this.checkBoxOnlyMy = this.Factory.CreateRibbonCheckBox();
             this.checkBoxNotStarted = this.Factory.CreateRibbonCheckBox();
             this.checkBoxInProgress = this.Factory.CreateRibbonCheckBox();
+            this.AdminGroup = this.Factory.CreateRibbonGroup();
+            this.showButton = this.Factory.CreateRibbonButton();
+            this.adminToggleButton = this.Factory.CreateRibbonToggleButton();
             this.tab1.SuspendLayout();
             this.groupStart.SuspendLayout();
             this.groupFilter.SuspendLayout();
+            this.AdminGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
@@ -53,6 +56,7 @@
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab1.Groups.Add(this.groupStart);
             this.tab1.Groups.Add(this.groupFilter);
+            this.tab1.Groups.Add(this.AdminGroup);
             this.tab1.Label = "Pinz";
             this.tab1.Name = "tab1";
             // 
@@ -61,15 +65,6 @@
             this.groupStart.Items.Add(this.showButton);
             this.groupStart.Label = "Start";
             this.groupStart.Name = "groupStart";
-            // 
-            // showButton
-            // 
-            this.showButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.showButton.Image = global::PinzOutlookAddIn.Properties.Resources.eye_icon;
-            this.showButton.Label = "Show";
-            this.showButton.Name = "showButton";
-            this.showButton.ShowImage = true;
-            this.showButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.showButton_Click);
             // 
             // groupFilter
             // 
@@ -112,6 +107,30 @@
             this.checkBoxInProgress.Name = "checkBoxInProgress";
             this.checkBoxInProgress.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.checkBoxInProgress_Click);
             // 
+            // AdminGroup
+            // 
+            this.AdminGroup.Items.Add(this.adminToggleButton);
+            this.AdminGroup.Label = "Administration";
+            this.AdminGroup.Name = "AdminGroup";
+            // 
+            // showButton
+            // 
+            this.showButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.showButton.Image = global::PinzOutlookAddIn.Properties.Resources.eye_icon;
+            this.showButton.Label = "Show";
+            this.showButton.Name = "showButton";
+            this.showButton.ShowImage = true;
+            this.showButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.showButton_Click);
+            // 
+            // adminToggleButton
+            // 
+            this.adminToggleButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.adminToggleButton.Image = global::PinzOutlookAddIn.Properties.Resources.admin;
+            this.adminToggleButton.Label = "Pinz Administration";
+            this.adminToggleButton.Name = "adminToggleButton";
+            this.adminToggleButton.ShowImage = true;
+            this.adminToggleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.adminToggleButton_Click);
+            // 
             // MainAddInRibbon
             // 
             this.Name = "MainAddInRibbon";
@@ -124,6 +143,8 @@
             this.groupStart.PerformLayout();
             this.groupFilter.ResumeLayout(false);
             this.groupFilter.PerformLayout();
+            this.AdminGroup.ResumeLayout(false);
+            this.AdminGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -139,6 +160,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox checkBoxOnlyMy;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox checkBoxNotStarted;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox checkBoxInProgress;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup AdminGroup;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton adminToggleButton;
     }
 
     partial class ThisRibbonCollection
