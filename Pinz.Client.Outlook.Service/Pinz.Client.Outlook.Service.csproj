@@ -68,7 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\ICategoryDAO.cs" />
+    <Compile Include="DAO\IOutlookService.cs" />
     <Compile Include="DAO\ITaskDAO.cs" />
     <Compile Include="DAO\TaskEvents_Event.cs" />
     <Compile Include="ICategoryService.cs" />

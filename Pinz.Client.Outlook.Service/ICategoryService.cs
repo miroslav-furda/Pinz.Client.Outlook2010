@@ -5,8 +5,8 @@ namespace Com.Pinz.Client.Outlook.Service
 {
     public interface ICategoryService
     {
-        ObservableCollection<OutlookCategory> readAll();
-        void create(OutlookCategory category);
-        void update(OutlookCategory category);
+        ObservableCollection<OutlookCategory> ReadAllCategories();
+        void Create();
+        void Update(OutlookCategory category);
     }
 }

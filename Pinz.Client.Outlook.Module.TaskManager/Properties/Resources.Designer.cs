@@ -22,7 +22,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Com.Pinz.Client.Outlook.Module.TaskManager.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Work done.
         /// </summary>
-        internal static string ActualWorkLabel {
+        public static string ActualWorkLabel {
             get {
                 return ResourceManager.GetString("ActualWorkLabel", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Body.
         /// </summary>
-        internal static string BodyLabel {
+        public static string BodyLabel {
             get {
                 return ResourceManager.GetString("BodyLabel", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        internal static string Button_Cancel {
+        public static string Button_Cancel {
             get {
                 return ResourceManager.GetString("Button_Cancel", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Delete this task.
         /// </summary>
-        internal static string Button_Delete_Tooltip {
+        public static string Button_Delete_Tooltip {
             get {
                 return ResourceManager.GetString("Button_Delete_Tooltip", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
-        internal static string Button_Ok {
+        public static string Button_Ok {
             get {
                 return ResourceManager.GetString("Button_Ok", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Create category.
         /// </summary>
-        internal static string CreateCategory_Button {
+        public static string CreateCategory_Button {
             get {
                 return ResourceManager.GetString("CreateCategory_Button", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Create task.
         /// </summary>
-        internal static string CreateTask_Button {
+        public static string CreateTask_Button {
             get {
                 return ResourceManager.GetString("CreateTask_Button", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Creation date.
         /// </summary>
-        internal static string CreationDateLabel {
+        public static string CreationDateLabel {
             get {
                 return ResourceManager.GetString("CreationDateLabel", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Date completed.
         /// </summary>
-        internal static string DateCompletedLabel {
+        public static string DateCompletedLabel {
             get {
                 return ResourceManager.GetString("DateCompletedLabel", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Do you want to delete this task?.
         /// </summary>
-        internal static string DeleteConfirmation_Content {
+        public static string DeleteConfirmation_Content {
             get {
                 return ResourceManager.GetString("DeleteConfirmation_Content", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
-        internal static string DeleteConfirmation_Title {
+        public static string DeleteConfirmation_Title {
             get {
                 return ResourceManager.GetString("DeleteConfirmation_Title", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Due date.
         /// </summary>
-        internal static string DueDateLabel {
+        public static string DueDateLabel {
             get {
                 return ResourceManager.GetString("DueDateLabel", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Edit Task.
         /// </summary>
-        internal static string Edit_Button {
+        public static string Edit_Button {
             get {
                 return ResourceManager.GetString("Edit_Button", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to New Category.
         /// </summary>
-        internal static string NewCategory {
+        public static string NewCategory {
             get {
                 return ResourceManager.GetString("NewCategory", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to No tasks in this category.
         /// </summary>
-        internal static string NoTasks {
+        public static string NoTasks {
             get {
                 return ResourceManager.GetString("NoTasks", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Owner.
         /// </summary>
-        internal static string OwnerLabel {
+        public static string OwnerLabel {
             get {
                 return ResourceManager.GetString("OwnerLabel", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Priority.
         /// </summary>
-        internal static string PriorityLabel {
+        public static string PriorityLabel {
             get {
                 return ResourceManager.GetString("PriorityLabel", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Start task.
         /// </summary>
-        internal static string StartButton {
+        public static string StartButton {
             get {
                 return ResourceManager.GetString("StartButton", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Start date.
         /// </summary>
-        internal static string StartDateLabel {
+        public static string StartDateLabel {
             get {
                 return ResourceManager.GetString("StartDateLabel", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
-        internal static string StatusLabel {
+        public static string StatusLabel {
             get {
                 return ResourceManager.GetString("StatusLabel", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Completed.
         /// </summary>
-        internal static string TaskStatus_TaskComplete {
+        public static string TaskStatus_TaskComplete {
             get {
                 return ResourceManager.GetString("TaskStatus_TaskComplete", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Deferred.
         /// </summary>
-        internal static string TaskStatus_TaskDeferred {
+        public static string TaskStatus_TaskDeferred {
             get {
                 return ResourceManager.GetString("TaskStatus_TaskDeferred", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to In Progress.
         /// </summary>
-        internal static string TaskStatus_TaskInProgress {
+        public static string TaskStatus_TaskInProgress {
             get {
                 return ResourceManager.GetString("TaskStatus_TaskInProgress", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Not Started.
         /// </summary>
-        internal static string TaskStatus_TaskNotStarted {
+        public static string TaskStatus_TaskNotStarted {
             get {
                 return ResourceManager.GetString("TaskStatus_TaskNotStarted", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Waiting.
         /// </summary>
-        internal static string TaskStatus_TaskWaiting {
+        public static string TaskStatus_TaskWaiting {
             get {
                 return ResourceManager.GetString("TaskStatus_TaskWaiting", resourceCulture);
             }

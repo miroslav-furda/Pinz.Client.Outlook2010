@@ -1,12 +1,11 @@
-﻿using Com.Pinz.Client.Outlook.Module.TaskManager.Properties;
-using Com.Pinz.Client.Outlook.Service;
+﻿using Com.Pinz.Client.Outlook.Service;
 using Com.Pinz.Client.Outlook.Service.Model;
 using Ninject;
 using Prism.Commands;
 using Prism.Mvvm;
 using System.Collections.ObjectModel;
 
-namespace Com.Pinz.WpfClient.Module.TaskManager.Models
+namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 {
     public class CategoryListModel : BindableBase
     {
@@ -34,16 +33,12 @@ namespace Com.Pinz.WpfClient.Module.TaskManager.Models
             this.categoryService = categoryService;
             CreateCategory = new DelegateCommand(OnCreateCategory);
 
-            Categories = categoryService.readAll();
+            Categories = categoryService.ReadAllCategories();
         }
 
         private void OnCreateCategory()
         {
-            OutlookCategory category = new OutlookCategory()
-            {
-                Name = Resources.NewCategory
-            };
-            categoryService.create(category);
+            categoryService.Create();
         }
     }
 }

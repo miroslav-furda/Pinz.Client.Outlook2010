@@ -14,9 +14,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <UserControl.Resources>
-        <Image x:Key="OkImage" Source="pack://application:,,,/Pinz.Commons;Component/Resources/ok.png" Width="10" Height="10"/>
-        <Image x:Key="CancelImage" Source="pack://application:,,,/Pinz.Commons;Component/Resources/cancel.png" Width="10" Height="10"/>
-        <Image x:Key="DeleteImage" Source="pack://application:,,,/Pinz.Commons;Component/Resources/delete.png" Width="10" Height="10"/>
+        <Image x:Key="OkImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/ok.png" Width="10" Height="10"/>
+        <Image x:Key="CancelImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/cancel.png" Width="10" Height="10"/>
+        <Image x:Key="DeleteImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/delete.png" Width="10" Height="10"/>
         <convert:ParametrizedBooleanToVisibilityConverter x:Key="BoolToVis" />
         <convert:Enum2LocalizedStringConverter x:Key="Enum2LocString"/>
 

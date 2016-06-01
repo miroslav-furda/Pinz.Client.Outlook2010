@@ -5,7 +5,7 @@ using Ninject.Modules;
 
 namespace Com.Pinz.Client.Outlook.Module.TaskManager
 {
-    public class TaskManagerNinjectModule : NinjectModule
+    public class OutlookTaskManagerNinjectModule : NinjectModule
     {
         public override void Load()
         {

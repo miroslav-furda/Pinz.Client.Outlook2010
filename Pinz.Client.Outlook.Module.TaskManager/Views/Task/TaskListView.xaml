@@ -53,7 +53,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ContentControl Grid.Column="0" Grid.Row="0" Name="TaskShowEdit" prism:RegionManager.RegionName="TaskShowEditRegion" prism:RegionManager.RegionContext="{Binding}" />
+                        <ContentControl Grid.Column="0" Grid.Row="0" Name="OutlookTaskShowEdit" prism:RegionManager.RegionName="OutlookTaskShowEditRegion" prism:RegionManager.RegionContext="{Binding}" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

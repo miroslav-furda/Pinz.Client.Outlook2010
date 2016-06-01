@@ -8,7 +8,7 @@ using Com.Pinz.Client.Outlook.Service.Model;
 
 namespace PinzOutlookAddIn.Service
 {
-    internal class TaskOutlookServiceImpl
+    internal class TaskOutlookServiceImpl : IOutlookService
     {
         public event TaskEvents_TaskAddEventHandler TaskAdd;
         public event TaskEvents_TaskChangeEventHandler TaskChange;

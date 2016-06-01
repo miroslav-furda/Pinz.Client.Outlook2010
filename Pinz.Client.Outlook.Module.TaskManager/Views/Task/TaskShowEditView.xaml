@@ -94,6 +94,6 @@
         </Button>
         <Button Grid.Column="5" Content="{StaticResource EditImage}" ToolTip="{x:Static p:Resources.Edit_Button}" Command="{Binding Path=EditCommand}" VerticalAlignment="Bottom" Margin="5,0,0,0" HorizontalAlignment="Left"  />
 
-        <ContentControl Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Name="TaskEdit" prism:RegionManager.RegionName="TaskEditRegion" prism:RegionManager.RegionContext="{Binding Task}" />
+        <ContentControl Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Name="OutlookTaskEdit" prism:RegionManager.RegionName="OutlookTaskEditRegion" prism:RegionManager.RegionContext="{Binding Task}" />
     </Grid>
 </UserControl>

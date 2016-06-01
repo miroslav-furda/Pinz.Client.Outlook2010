@@ -56,7 +56,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 
         private void OnUpdateCategory()
         {
-            service.update(Category);
+            service.Update(Category);
             IsEditorEnabled = false;
         }
 

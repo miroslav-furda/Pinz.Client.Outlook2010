@@ -121,10 +121,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TaskManagerModule.cs" />
-    <Compile Include="TaskManagerNinjectModule.cs" />
-    <Compile Include="Views\Category\CategoryListView.xaml.cs">
-      <DependentUpon>CategoryListView.xaml</DependentUpon>
+    <Compile Include="OutlookTaskManagerModule.cs" />
+    <Compile Include="OutlookTaskManagerNinjectModule.cs" />
+    <Compile Include="Views\Category\OutlookCategoryListView.xaml.cs">
+      <DependentUpon>OutlookCategoryListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Category\CategoryShowEditView.xaml.cs">
       <DependentUpon>CategoryShowEditView.xaml</DependentUpon>
@@ -139,7 +139,7 @@
       <DependentUpon>TaskShowEditView.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -150,7 +150,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Category\CategoryListView.xaml">
+    <Page Include="Views\Category\OutlookCategoryListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

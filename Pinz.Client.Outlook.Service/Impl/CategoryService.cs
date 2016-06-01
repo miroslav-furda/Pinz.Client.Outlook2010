@@ -8,34 +8,34 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
 {
     public class CategoryService : ICategoryService
     {
-        private ICategoryDAO categoryDAO;
+        private IOutlookService outlookService;
         private ObservableCollection<OutlookCategory> categories;
 
         [Inject]
-        public CategoryService(ICategoryDAO categoryDAO)
+        public CategoryService(IOutlookService outlookService)
         {
-            this.categoryDAO = categoryDAO;
+            this.outlookService = outlookService;
             categories = new ObservableCollection<OutlookCategory>();
         }
 
 
-        public ObservableCollection<OutlookCategory> readAll()
+        public ObservableCollection<OutlookCategory> ReadAllCategories()
         {
             categories.Clear();
-            List<OutlookCategory> categoryList = categoryDAO.readAll();
+            List<OutlookCategory> categoryList = outlookService.ReadAllCategories();
             categoryList.ForEach(categories.Add);
 
             return categories;
         }
 
-        public void create(OutlookCategory category)
+        public void Create()
         {
-            categories.Add(categoryDAO.create(category));
+            categories.Add(outlookService.CreateCategory());
         }
 
-        public void update(OutlookCategory category)
+        public void Update(OutlookCategory category)
         {
-            categoryDAO.update(category);
+            outlookService.UpdateCategory(category);
         }
     }
 }

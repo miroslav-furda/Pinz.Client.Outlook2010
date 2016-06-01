@@ -9,7 +9,7 @@ namespace Com.Pinz.Client.Outlook.Service
         {
             Kernel.Bind<ITaskService>().To<Impl.TaskService>().InSingletonScope();
             Kernel.Bind<ICategoryService>().To<Impl.CategoryService>().InSingletonScope();
-            Kernel.Bind<TaskFilter>().ToSelf().InSingletonScope();
+            //Kernel.Bind<TaskFilter>().ToSelf().InSingletonScope();
         }
     }
 }

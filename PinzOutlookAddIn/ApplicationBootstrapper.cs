@@ -22,6 +22,10 @@ using Com.Pinz.Client.DomainModel;
 using Com.Pinz.Client.RemoteServiceConsumer;
 using System;
 using Common.Logging;
+using Com.Pinz.Client.Outlook.Service.DAO;
+using Com.Pinz.Client.Outlook.Module.TaskManager;
+using PinzOutlookAddIn.Service;
+using Com.Pinz.Client.Outlook.Service;
 
 namespace PinzOutlookAddIn
 {
@@ -76,7 +80,7 @@ namespace PinzOutlookAddIn
             moduleCatalog.AddModule(typeof(TaskManagerModule));
             moduleCatalog.AddModule(typeof(AdministrationModule));
 
-            moduleCatalog.Load();
+            moduleCatalog.AddModule(typeof(OutlookTaskManagerModule));
         }
 
         protected override void ConfigureKernel()
@@ -86,9 +90,8 @@ namespace PinzOutlookAddIn
             Kernel.Bind<IRibbonController>().To<DefaultRibbonController>();
             Kernel.Bind<Shell>().ToSelf().InSingletonScope();
 
-            //Kernel.Bind<Service.DAO.TaskAndCategoryLoader>().ToSelf().InSingletonScope();
-            //Kernel.Bind<ITaskDAO>().To<Service.DAO.OutlookTaskDAO>().InSingletonScope();
-            //Kernel.Bind<ICategoryDAO>().To<Service.DAO.OutlookCategoryDAO>().InSingletonScope();
+            Kernel.Bind<TaskAndCategoryLoader>().ToSelf().InSingletonScope();
+            Kernel.Bind<IOutlookService>().To<Service.TaskOutlookServiceImpl>().InSingletonScope();
 
             Kernel.Bind<OutlookInterop.Application>().ToConstant(application);
             Kernel.Bind<CustomTaskPaneCollection>().ToConstant(customTaskPaneCollection);
@@ -101,6 +104,9 @@ namespace PinzOutlookAddIn
             Kernel.Load(new TaskManagerNinjectModule());
             Kernel.Load(new ServiceConsumerNinjectModule());
             Kernel.Load(new LoginNinjectModule());
+
+            Kernel.Load(new OutlookTaskManagerNinjectModule());
+            Kernel.Load(new ServiceNinjectModule());
 
             Kernel.Bind<TaskFilter>().ToSelf().InSingletonScope();
             Kernel.Bind<ApplicationGlobalModel>().ToSelf().InSingletonScope();

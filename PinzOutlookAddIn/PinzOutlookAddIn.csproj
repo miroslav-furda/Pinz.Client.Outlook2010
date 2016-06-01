@@ -385,6 +385,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Pinz.Client.Outlook.Module.TaskManager\Pinz.Client.Outlook.Module.TaskManager.csproj">
+      <Project>{3025aa45-5c68-40a8-b0b8-46eda39fc0fa}</Project>
+      <Name>Pinz.Client.Outlook.Module.TaskManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pinz.Client.Outlook.Service\Pinz.Client.Outlook.Service.csproj">
       <Project>{91690085-1c83-4e95-b4ef-fc7aeeba9ca2}</Project>
       <Name>Pinz.Client.Outlook.Service</Name>
