@@ -11,21 +11,21 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
 {
     public class TaskService : ITaskService
     {
-        private ITaskDAO taskDAO;
+        private IOutlookService outlookService;
         private TaskFilter taskFilter;
         private Dictionary<OutlookCategory, ObservableCollection<OutlookTask>> tasks;
 
         [Inject]
-        public TaskService(ITaskDAO taskDAO, TaskFilter filter)
+        public TaskService(IOutlookService outlookService, TaskFilter filter)
         {
-            this.taskDAO = taskDAO;
+            this.outlookService = outlookService;
             this.taskFilter = filter;
 
             tasks = new Dictionary<OutlookCategory, ObservableCollection<OutlookTask>>();
 
-            taskDAO.TaskAdd += TaskDAO_TaskAdd;
-            taskDAO.TaskChange += TaskDAO_TaskChange;
-            taskDAO.TaskRemove += TaskDAO_TaskRemove;
+            outlookService.TaskAdd += TaskDAO_TaskAdd;
+            outlookService.TaskChange += TaskDAO_TaskChange;
+            outlookService.TaskRemove += TaskDAO_TaskRemove;
 
             taskFilter.PropertyChanged += TaskFilter_PropertyChanged;
         }
@@ -36,14 +36,14 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
             task.StartDate = DateTime.Today;
             task.DueDate = DateTime.Today;
             task.DateCompleted = null;
-            taskDAO.update(task);
+            outlookService.UpdateTask(task);
         }
 
         public void CompleteTask(OutlookTask task)
         {
             task.Status = TaskStatus.TaskComplete;
             task.DateCompleted = DateTime.Today;
-            taskDAO.update(task);
+            outlookService.UpdateTask(task);
         }
 
         public void ReopenTask(OutlookTask task)
@@ -52,30 +52,24 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
             task.StartDate = null;
             task.DueDate = null;
             task.DateCompleted = null;
-            taskDAO.update(task);
+            outlookService.UpdateTask(task);
         }
 
         public void Update(OutlookTask task)
         {
-            taskDAO.update(task);
+            outlookService.UpdateTask(task);
         }
 
         public void Delete(OutlookTask task)
         {
-            taskDAO.delete(task);
+            outlookService.DeleteTask(task);
         }
 
 
 
         public OutlookTask CreateNewTask(OutlookCategory category)
         {
-            OutlookTask task = new OutlookTask();
-            task.TaskName = Resources.New_Task;
-            task.CreationTime = DateTime.Today;
-            task.Category = category;
-            task.Status = TaskStatus.TaskNotStarted;
-
-            taskDAO.create(task);
+            OutlookTask task = outlookService.CreateTaskInCategory(category);
             return task;
         }
 
@@ -85,7 +79,7 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
             {
                 tasks[sourceItem.Category].Remove(sourceItem);
                 sourceItem.Category = newCategory;
-                taskDAO.update(sourceItem);
+                outlookService.UpdateTask(sourceItem);
                 tasks[sourceItem.Category].Add(sourceItem);
             }
         }
@@ -95,7 +89,7 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
         {
             ObservableCollection<OutlookTask> tasksInCategory = loadTasks(category);
             tasksInCategory.Clear();
-            List<OutlookTask> taskList = taskDAO.readAll();
+            List<OutlookTask> taskList = outlookService.ReadAllTasksByCategory(category);
             taskList.ForEach(item =>
             {
                 if (filter(item) && (category == null || category.Equals(item.Category)))

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Com.Pinz.Client.Outlook.Service.DAO
 {
-    public interface IOutlookService
+    public interface IOutlookService : TaskEvents_Event
     {
         List<OutlookCategory> ReadAllCategories();
 

@@ -38,7 +38,7 @@
                         <Border Grid.Column="0" Grid.Row="0" BorderBrush="DodgerBlue" BorderThickness="0,0,0,3">
                             <ContentControl Name="OutlookCategoryShowEdit" prism:RegionManager.RegionName="OutlookCategoryShowEditRegion" prism:RegionManager.RegionContext="{Binding}" />
                         </Border>
-                        <!--ContentControl Grid.Column="0" Grid.Row="1" Name="OutlookTaskList" prism:RegionManager.RegionName="OutlookTaskListRegion" prism:RegionManager.RegionContext="{Binding}" /-->
+                        <ContentControl Grid.Column="0" Grid.Row="1" Name="OutlookTaskList" prism:RegionManager.RegionName="OutlookTaskListRegion" prism:RegionManager.RegionContext="{Binding}" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

@@ -71,6 +71,33 @@ namespace PinzOutlookAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error_MessageBox_Title {
+            get {
+                return ResourceManager.GetString("Error_MessageBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your request is taking too much time, do you have an internet connection? Please try again..
+        /// </summary>
+        internal static string Error_Timeout_Content {
+            get {
+                return ResourceManager.GetString("Error_Timeout_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unhandled exception just occurred:.
+        /// </summary>
+        internal static string Error_Undefined_Content {
+            get {
+                return ResourceManager.GetString("Error_Undefined_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap eye_icon {
@@ -122,6 +149,15 @@ namespace PinzOutlookAddIn.Properties {
         internal static string Outlook_Task_New {
             get {
                 return ResourceManager.GetString("Outlook_Task_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string Warning_MessageBox_Title {
+            get {
+                return ResourceManager.GetString("Warning_MessageBox_Title", resourceCulture);
             }
         }
     }
