@@ -32,10 +32,9 @@ namespace PinzOutlookAddIn
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             _bootstrapper = new ApplicationBootstrapper(this.Application, this.CustomTaskPanes, Globals.Ribbons, Globals.FormRegions, mainRibbon);
+            applicationInsightHelper.TrackPageView("ThisAddIn");
             _bootstrapper.Run();
         }
-
-
 
         protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
         {
@@ -74,14 +73,14 @@ namespace PinzOutlookAddIn
             }
             else
             {
-                Log.ErrorFormat("An unhandled exception just occurred:{0}", exp, exp.Message);
-                applicationInsightHelper.TrackNonFatalExceptions(exp);
+                applicationInsightHelper.TrackFatalException(exp);
                 applicationInsightHelper.FlushData();
+                Log.ErrorFormat("An unhandled exception just occurred:{0}", exp, exp.Message);
 
                 MessageBox.Show(Properties.Resources.Error_Undefined_Content + exp.Message,
                     Properties.Resources.Error_MessageBox_Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            Process.GetCurrentProcess().Kill();
+            ThisAddIn_Shutdown(null, null);
         }
         #endregion
 

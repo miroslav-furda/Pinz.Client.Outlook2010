@@ -45,7 +45,7 @@ namespace PinzOutlookAddIn.Infrastructure
 
         public void TrackFatalException(Exception ex)
         {
-            var exceptionTelemetry = new Microsoft.ApplicationInsights.DataContracts.ExceptionTelemetry(new Exception());
+            var exceptionTelemetry = new Microsoft.ApplicationInsights.DataContracts.ExceptionTelemetry(ex);
             exceptionTelemetry.HandledAt = Microsoft.ApplicationInsights.DataContracts.ExceptionHandledAt.Unhandled;
             _telemetryClient.TrackException(exceptionTelemetry);
         }
@@ -55,10 +55,18 @@ namespace PinzOutlookAddIn.Infrastructure
             _sessionKey = Guid.NewGuid().ToString();
             _userName = Environment.UserName;
             _osName = GetWindowsFriendlyName();
-            _version = ""; // $"v.{ Assembly.GetEntryAssembly().GetName().Version}";
-            _application = ""; // $"{ Assembly.GetEntryAssembly().GetName().Name}        {_version}";
-            _manufacturer = ""; // (from x in new ManagementObjectSearcher("SELECT Manufacturer FROM Win32ComputerSystem").Get().OfType() select x.GetPropertyValue("Manufacturer")).FirstOrDefault()?.ToString() ?? "Unknown";
-            _model = ""; // (from x in new ManagementObjectSearcher("SELECT Model FROM Win32ComputerSystem").Get().OfType() select x.GetPropertyValue("Model")).FirstOrDefault()?.ToString() ?? "Unknown";
+            _version = $"v.{ Assembly.GetExecutingAssembly().GetName().Version}";
+            _application = $"{ Assembly.GetExecutingAssembly().GetName().Name}        {_version}";
+            try
+            {
+                _manufacturer = (from x in new ManagementObjectSearcher("SELECT Manufacturer FROM Win32ComputerSystem").Get().OfType<ManagementBaseObject>() select x.GetPropertyValue("Manufacturer")).FirstOrDefault()?.ToString() ?? "Unknown";
+                _model = (from x in new ManagementObjectSearcher("SELECT Model FROM Win32ComputerSystem").Get().OfType<ManagementBaseObject>() select x.GetPropertyValue("Model")).FirstOrDefault()?.ToString() ?? "Unknown";
+            }
+            catch
+            {
+                _manufacturer = "unknown";
+                _model = "unknown";
+            }
         }
 
         private string GetWindowsFriendlyName()
