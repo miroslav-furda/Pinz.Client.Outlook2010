@@ -64,7 +64,7 @@ namespace PinzOutlookAddIn.Infrastructure
             }
             catch
             {
-                _manufacturer = "unknown";
+                _manufacturer = Globals.ThisAddIn.Application.Version;
                 _model = "unknown";
             }
         }

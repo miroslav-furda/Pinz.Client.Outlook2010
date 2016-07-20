@@ -9,7 +9,7 @@ using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 
-namespace Com.Pinz.WpfClient.Module.TaskManager.Models
+namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 {
     public class TaskEditModel : BindableBase
     {

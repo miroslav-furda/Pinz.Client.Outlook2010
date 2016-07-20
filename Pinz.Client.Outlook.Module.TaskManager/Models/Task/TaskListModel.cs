@@ -7,7 +7,7 @@ using Prism.Mvvm;
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace Com.Pinz.WpfClient.Module.TaskManager.Models
+namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 {
     public class TaskListModel : BindableBase, IDropTarget
     {

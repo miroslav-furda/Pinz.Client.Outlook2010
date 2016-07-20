@@ -1,5 +1,6 @@
 ﻿using Com.Pinz.Client.Outlook.Module.TaskManager.Models;
 using Com.Pinz.Client.Outlook.Service.Model;
+using Ninject;
 using Prism.Regions;
 using System.Windows.Controls;
 
@@ -10,7 +11,8 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Views
     /// </summary>
     public partial class TaskShowEditView : UserControl
     {
-        public TaskShowEditView(TaskShowEditModel model)
+        [Inject]
+        public TaskShowEditView([Named("OutlookModel")]  TaskShowEditModel model)
         {
             InitializeComponent();
 

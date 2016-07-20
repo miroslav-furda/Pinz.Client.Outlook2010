@@ -120,6 +120,7 @@ namespace PinzOutlookAddIn
             {
                 cfg.CreateMap<Task, Task>();
                 cfg.CreateMap<User, User>();
+                cfg.CreateMap<User, ProjectUser>();
             });
 
             return config.CreateMapper();

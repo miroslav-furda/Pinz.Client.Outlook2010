@@ -36,6 +36,8 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.groupStart = this.Factory.CreateRibbonGroup();
+            this.showButton = this.Factory.CreateRibbonButton();
+            this.outlookPinzToggleButton = this.Factory.CreateRibbonToggleButton();
             this.groupFilter = this.Factory.CreateRibbonGroup();
             this.checkBoxFinished = this.Factory.CreateRibbonCheckBox();
             this.checkBoxDueToday = this.Factory.CreateRibbonCheckBox();
@@ -43,7 +45,6 @@
             this.checkBoxNotStarted = this.Factory.CreateRibbonCheckBox();
             this.checkBoxInProgress = this.Factory.CreateRibbonCheckBox();
             this.AdminGroup = this.Factory.CreateRibbonGroup();
-            this.showButton = this.Factory.CreateRibbonButton();
             this.adminToggleButton = this.Factory.CreateRibbonToggleButton();
             this.tab1.SuspendLayout();
             this.groupStart.SuspendLayout();
@@ -63,8 +64,29 @@
             // groupStart
             // 
             this.groupStart.Items.Add(this.showButton);
+            this.groupStart.Items.Add(this.outlookPinzToggleButton);
             this.groupStart.Label = "Start";
             this.groupStart.Name = "groupStart";
+            // 
+            // showButton
+            // 
+            this.showButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.showButton.Image = global::PinzOutlookAddIn.Properties.Resources.eye_icon;
+            this.showButton.Label = "Show";
+            this.showButton.Name = "showButton";
+            this.showButton.ShowImage = true;
+            this.showButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.showButton_Click);
+            // 
+            // outlookPinzToggleButton
+            // 
+            this.outlookPinzToggleButton.Checked = true;
+            this.outlookPinzToggleButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.outlookPinzToggleButton.Image = global::PinzOutlookAddIn.Properties.Resources.pin_64x64;
+            this.outlookPinzToggleButton.Label = "Pinz";
+            this.outlookPinzToggleButton.Name = "outlookPinzToggleButton";
+            this.outlookPinzToggleButton.ScreenTip = "Switch between Pinz and Ooutlook tasks";
+            this.outlookPinzToggleButton.ShowImage = true;
+            this.outlookPinzToggleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.outlookPinzToggleButton_Click);
             // 
             // groupFilter
             // 
@@ -90,10 +112,9 @@
             // 
             // checkBoxOnlyMy
             // 
-            this.checkBoxOnlyMy.Checked = true;
-            this.checkBoxOnlyMy.Enabled = false;
             this.checkBoxOnlyMy.Label = "My Tasks";
             this.checkBoxOnlyMy.Name = "checkBoxOnlyMy";
+            this.checkBoxOnlyMy.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.checkBoxOnlyMy_Click);
             // 
             // checkBoxNotStarted
             // 
@@ -112,15 +133,6 @@
             this.AdminGroup.Items.Add(this.adminToggleButton);
             this.AdminGroup.Label = "Administration";
             this.AdminGroup.Name = "AdminGroup";
-            // 
-            // showButton
-            // 
-            this.showButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.showButton.Image = global::PinzOutlookAddIn.Properties.Resources.eye_icon;
-            this.showButton.Label = "Show";
-            this.showButton.Name = "showButton";
-            this.showButton.ShowImage = true;
-            this.showButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.showButton_Click);
             // 
             // adminToggleButton
             // 
@@ -162,6 +174,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox checkBoxInProgress;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup AdminGroup;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton adminToggleButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton outlookPinzToggleButton;
     }
 
     partial class ThisRibbonCollection

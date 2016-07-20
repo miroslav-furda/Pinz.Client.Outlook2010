@@ -10,7 +10,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Views
     public partial class OutlookCategoryListView : UserControl
     {
         [Inject]
-        public OutlookCategoryListView(CategoryListModel model)
+        public OutlookCategoryListView([Named("OutlookModel")] CategoryListModel model)
         {
             InitializeComponent();
             this.DataContext = model;

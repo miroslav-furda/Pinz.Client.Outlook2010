@@ -16,7 +16,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager
 
         public void Initialize()
         {
-            regionViewRegistry.RegisterViewWithRegion("OutlookMainRegion", typeof(Views.OutlookCategoryListView));
+            //regionViewRegistry.RegisterViewWithRegion("OutlookMainRegion", typeof(Views.OutlookCategoryListView));
             regionViewRegistry.RegisterViewWithRegion("OutlookCategoryShowEditRegion", typeof(Views.CategoryShowEditView));
             regionViewRegistry.RegisterViewWithRegion("OutlookTaskListRegion", typeof(Views.TaskListView));
             regionViewRegistry.RegisterViewWithRegion("OutlookTaskShowEditRegion", typeof(Views.TaskShowEditView));

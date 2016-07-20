@@ -56,5 +56,26 @@ namespace PinzOutlookAddIn
             else
                 controller.NavigateToPinzTasks();
         }
+
+        private void checkBoxOnlyMy_Click(object sender, RibbonControlEventArgs e)
+        {
+            RibbonCheckBox checkBox = (RibbonCheckBox)sender;
+            this.controller.showMyTasks(checkBox.Checked);
+        }
+
+        private void outlookPinzToggleButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            RibbonToggleButton button = sender as RibbonToggleButton;
+            if (button.Checked)
+            {
+                button.Label = "Pinz";
+                controller.NavigateToPinzView();
+            }
+            else
+            {
+                button.Label = "Outlook";
+                controller.NavigateToOutlookView();
+            }
+        }
     }
 }

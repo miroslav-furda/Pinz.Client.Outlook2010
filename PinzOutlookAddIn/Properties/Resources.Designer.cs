@@ -153,6 +153,16 @@ namespace PinzOutlookAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pin_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("pin_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
         internal static string Warning_MessageBox_Title {

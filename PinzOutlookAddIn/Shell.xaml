@@ -13,19 +13,14 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <RadioButton x:Name="PinzRadioButton" GroupName="AppType"  Grid.Row="0" Grid.Column="0" Content="Pinz" Margin=" 10" IsChecked="True" Click="PinzRadioButton_Click"/>
-            <RadioButton x:Name="OutlookRadioButton" GroupName="AppType"  Grid.Row="0" Grid.Column="1" Content="Outlook" Margin=" 10" Click="OutlookRadioButton_Click"/>
-
-            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="PinzMainRegion" prism:RegionManager.RegionName="PinzMainRegion" />
-            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="OutlookMainRegion" prism:RegionManager.RegionName="OutlookMainRegion" Visibility="Hidden" Margin="5" />
+            <ContentControl Grid.Row="0" Grid.Column="0" x:Name="PinzMainRegion" prism:RegionManager.RegionName="PinzMainRegion" />
+            <!--ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="OutlookMainRegion" prism:RegionManager.RegionName="OutlookMainRegion" Visibility="Hidden" Margin="5" /-->
         </Grid>
     </ScrollViewer>
 </UserControl>

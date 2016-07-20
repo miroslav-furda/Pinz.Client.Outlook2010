@@ -10,11 +10,13 @@ namespace PinzOutlookAddIn.Ribbon
         void NavigateToPinzAdministration();
         void NavigateToPinzTasks();
 
-
+        void showMyTasks(bool selected);
         void showMainTaskPane();
         void showFinished(bool finished);
         void showDueToday(bool finished);
         void showNotStarted(bool finished);
         void showInProgress(bool finished);
+        void NavigateToOutlookView();
+        void NavigateToPinzView();
     }
 }
