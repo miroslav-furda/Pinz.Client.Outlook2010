@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Com.Pinz.Client.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,8 @@ namespace PinzOutlookAddIn.Ribbon
 {
     public interface IRibbonController
     {
+        ApplicationGlobalModel AppGlobalModel { get; }
+
         void NavigateToPinzAdministration();
         void NavigateToPinzTasks();
 

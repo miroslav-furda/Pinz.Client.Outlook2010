@@ -2,6 +2,7 @@
 using Microsoft.Office.Tools.Ribbon;
 using Prism.Regions;
 using Com.Pinz.Client.Commons;
+using System.ComponentModel;
 
 namespace PinzOutlookAddIn
 {
@@ -14,14 +15,25 @@ namespace PinzOutlookAddIn
 
         }
 
-        private void showButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            this.controller.showMainTaskPane();
-        }
-
         public void setController(Ribbon.IRibbonController ribbonController)
         {
             this.controller = ribbonController;
+            adminToggleButton.Enabled = ribbonController.AppGlobalModel.IsUserLoggedIn;
+            ribbonController.AppGlobalModel.PropertyChanged += _appGlobalModel_PropertyChanged;
+
+        }
+
+        private void _appGlobalModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if ("IsUserLoggedIn" == e.PropertyName)
+            {
+                adminToggleButton.Enabled = controller.AppGlobalModel.IsUserLoggedIn;
+            }
+        }
+
+        private void showButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.controller.showMainTaskPane();
         }
 
         private void checkBoxDueToday_Click(object sender, RibbonControlEventArgs e)

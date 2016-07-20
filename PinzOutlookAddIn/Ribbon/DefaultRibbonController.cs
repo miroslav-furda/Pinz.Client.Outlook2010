@@ -16,7 +16,7 @@ namespace PinzOutlookAddIn.Ribbon
         private CustomTaskPane _mainTaskPane;
         private TaskFilter _taskFilter;
         private IRegionManager _regionManager;
-        private ApplicationGlobalModel _appGlobalModel;
+        public ApplicationGlobalModel AppGlobalModel { get; private set; }
 
         private static Uri AdministrationViewUri = new Uri("AdministrationMainView", UriKind.Relative);
         private static Uri PinzProjectsTabViewUri = new Uri("PinzProjectsTabView", UriKind.Relative);
@@ -30,21 +30,7 @@ namespace PinzOutlookAddIn.Ribbon
             this._mainTaskPane = taskPane;
             this._taskFilter = filter;
             this._regionManager = regionManager;
-            this._appGlobalModel = appGlobalModel;
-        }
-
-        public bool IsUserLoggedIn()
-        {
-            _appGlobalModel.PropertyChanged += _appGlobalModel_PropertyChanged;
-            return _appGlobalModel.IsUserLoggedIn;
-        }
-
-        private void _appGlobalModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if( "" == e.PropertyName)
-            {
-
-            }
+            this.AppGlobalModel = appGlobalModel;
         }
 
         public void showDueToday(bool selected)
