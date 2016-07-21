@@ -102,9 +102,12 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 
         private void OnOkExecute()
         {
-            service.Update(this.Task);
-            EditMode = false;
-            eventAggregator.GetEvent<OutlookTaskEditFinishedEvent>().Publish(Task);
+            if (Task.ValidateModel())
+            {
+                service.Update(this.Task);
+                EditMode = false;
+                eventAggregator.GetEvent<OutlookTaskEditFinishedEvent>().Publish(Task);
+            }
         }
 
         private void StartEdit(OutlookTask obj)

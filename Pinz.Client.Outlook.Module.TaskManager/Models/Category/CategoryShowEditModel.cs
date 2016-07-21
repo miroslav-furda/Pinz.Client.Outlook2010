@@ -1,4 +1,5 @@
-﻿using Com.Pinz.Client.Outlook.Module.TaskManager.Events;
+﻿using Com.Pinz.Client.Commons.Prism;
+using Com.Pinz.Client.Outlook.Module.TaskManager.Events;
 using Com.Pinz.Client.Outlook.Service;
 using Com.Pinz.Client.Outlook.Service.Model;
 using Ninject;
@@ -8,7 +9,7 @@ using Prism.Mvvm;
 
 namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 {
-    public class CategoryShowEditModel : BindableBase
+    public class CategoryShowEditModel : BindableValidationBase
     {
         public OutlookCategory Category { get; set; }
 
@@ -56,8 +57,11 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 
         private void OnUpdateCategory()
         {
-            service.Update(Category);
-            IsEditorEnabled = false;
+            if (Category.ValidateModel())
+            {
+                service.Update(Category);
+                IsEditorEnabled = false;
+            }
         }
 
         private void OnCancelEditCategory()

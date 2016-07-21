@@ -1,9 +1,10 @@
-﻿using Prism.Mvvm;
+﻿using Com.Pinz.Client.Commons.Prism;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Com.Pinz.Client.Outlook.Service.Model
 {
-    public class OutlookTask : BindableBase
+    public class OutlookTask : BindableValidationBase
     {
         private string entryId;
 
@@ -32,6 +33,7 @@ namespace Com.Pinz.Client.Outlook.Service.Model
             set { SetProperty(ref this.entryId, value); }
         }
 
+        [Required]
         public string TaskName
         {
             get { return taskName; }
@@ -56,6 +58,7 @@ namespace Com.Pinz.Client.Outlook.Service.Model
             set { SetProperty(ref this.owner, value); }
         }
 
+        [Required]
         public DateTime CreationTime
         {
             get { return creationTime; }
