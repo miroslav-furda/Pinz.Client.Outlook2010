@@ -6,6 +6,7 @@ using Microsoft.Office.Tools;
 using Ninject;
 using Prism.Regions;
 using System;
+using System.Windows;
 
 namespace PinzOutlookAddIn.Ribbon
 {
@@ -21,10 +22,10 @@ namespace PinzOutlookAddIn.Ribbon
         private static Uri AdministrationViewUri = new Uri("AdministrationMainView", UriKind.Relative);
         private static Uri PinzProjectsTabViewUri = new Uri("PinzProjectsTabView", UriKind.Relative);
         private static Uri OutlookCategoryListViewUri = new Uri("OutlookCategoryListView", UriKind.Relative);
-        
+
 
         [Inject]
-        public DefaultRibbonController(CustomTaskPane taskPane, TaskFilter filter,  IRegionManager regionManager,
+        public DefaultRibbonController(CustomTaskPane taskPane, TaskFilter filter, IRegionManager regionManager,
             ApplicationGlobalModel appGlobalModel)
         {
             this._mainTaskPane = taskPane;
@@ -65,28 +66,47 @@ namespace PinzOutlookAddIn.Ribbon
 
         public void NavigateToPinzAdministration()
         {
-            _regionManager.RequestNavigate(RegionNames.MainContentRegion, AdministrationViewUri);
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                Log.Debug("request navigate");
+                _regionManager.RequestNavigate(RegionNames.MainContentRegion, AdministrationViewUri, (res) =>
+                {
+                    Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
+                });
+            }));
         }
 
         public void NavigateToPinzTasks()
         {
-            _regionManager.RequestNavigate(RegionNames.MainContentRegion, PinzProjectsTabViewUri);
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                _regionManager.RequestNavigate(RegionNames.MainContentRegion, PinzProjectsTabViewUri, (res) =>
+                {
+                    Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
+                });
+            }));
         }
 
         public void NavigateToOutlookView()
         {
-            _regionManager.RequestNavigate(RegionNames.MainContentRegion, OutlookCategoryListViewUri, (res)=>
+            Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
-            });
+                _regionManager.RequestNavigate(RegionNames.MainContentRegion, OutlookCategoryListViewUri, (res) =>
+                {
+                    Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
+                });
+            }));
         }
 
         public void NavigateToPinzView()
         {
-            _regionManager.RequestNavigate(RegionNames.MainContentRegion, PinzProjectsTabViewUri, (res) =>
+            Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
-            });
+                _regionManager.RequestNavigate(RegionNames.MainContentRegion, PinzProjectsTabViewUri, (res) =>
+                {
+                    Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
+                });
+            }));
         }
     }
 }

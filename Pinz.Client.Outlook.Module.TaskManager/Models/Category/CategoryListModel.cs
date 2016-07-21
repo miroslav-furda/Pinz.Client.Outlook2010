@@ -3,11 +3,13 @@ using Com.Pinz.Client.Outlook.Service.Model;
 using Ninject;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using System.Collections.ObjectModel;
+using System;
 
 namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
 {
-    public class CategoryListModel : BindableBase
+    public class CategoryListModel : BindableBase, INavigationAware
     {
 
         private ObservableCollection<OutlookCategory> _categories;
@@ -39,6 +41,19 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager.Models
         private void OnCreateCategory()
         {
             categoryService.Create();
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Com.Pinz.Client.Outlook.Module.TaskManager
 
         public override void Load()
         {
-            Kernel.Bind<object>().To<OutlookCategoryListView>().InSingletonScope().Named("OutlookCategoryListView");
+            Kernel.Bind<object>().To<OutlookCategoryListView>().Named("OutlookCategoryListView");
 
             Kernel.Bind<CategoryListModel>().ToSelf().Named(OUTLOOK_MODEL_NAMED);
             Kernel.Bind<CategoryShowEditModel>().ToSelf().Named(OUTLOOK_MODEL_NAMED);
