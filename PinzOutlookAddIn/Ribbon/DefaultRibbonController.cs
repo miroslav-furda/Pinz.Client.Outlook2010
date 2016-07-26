@@ -22,6 +22,8 @@ namespace PinzOutlookAddIn.Ribbon
         private static Uri AdministrationViewUri = new Uri("AdministrationMainView", UriKind.Relative);
         private static Uri PinzProjectsTabViewUri = new Uri("PinzProjectsTabView", UriKind.Relative);
         private static Uri OutlookCategoryListViewUri = new Uri("OutlookCategoryListView", UriKind.Relative);
+        private static Uri PinzProjectsMainUri = new Uri("MainModuleView", UriKind.Relative);
+        
 
 
         [Inject]
@@ -91,7 +93,7 @@ namespace PinzOutlookAddIn.Ribbon
         {
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                _regionManager.RequestNavigate(RegionNames.MainContentRegion, OutlookCategoryListViewUri, (res) =>
+                _regionManager.RequestNavigate("PinzMainRegion", OutlookCategoryListViewUri, (res) =>
                 {
                     Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
                 });
@@ -102,7 +104,7 @@ namespace PinzOutlookAddIn.Ribbon
         {
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                _regionManager.RequestNavigate(RegionNames.MainContentRegion, PinzProjectsTabViewUri, (res) =>
+                _regionManager.RequestNavigate("PinzMainRegion", PinzProjectsMainUri, (res) =>
                 {
                     Log.DebugFormat("Navigation result was {0}, with Context: {1}, and error: {2} ", res.Result, res.Context, res.Error);
                 });

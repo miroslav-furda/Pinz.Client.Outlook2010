@@ -329,7 +329,6 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="PinzOutlookAddIn_1_TemporaryKey.pfx" />
     <None Include="PinzOutlookAddIn_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -415,10 +414,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>PinzOutlookAddIn_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>PinzOutlookAddIn_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7C4C219D6E545DE3C10D1E5EF0B8C10FC1B85C3D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>3B389DDD724B7C03E1D546AF5796ED29C7CE2FA0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

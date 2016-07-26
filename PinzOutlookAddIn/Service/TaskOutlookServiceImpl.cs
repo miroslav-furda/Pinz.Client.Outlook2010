@@ -166,8 +166,7 @@ namespace PinzOutlookAddIn.Service
                     if (task.EntryId.Equals(taskItem.EntryID))
                     {
                         taskAndCategoryLoader.UpdateTask(task, taskItem, taskAndCategoryLoader.Categories, taskAndCategoryLoader.DefaultCategory);
-                        if (TaskChange != null)
-                            TaskChange(task);
+                        TaskChange?.Invoke(task);
                     }
 
                 });
@@ -183,8 +182,7 @@ namespace PinzOutlookAddIn.Service
             {
                 OutlookTask taskToDelete = toDeleteSubset.ElementAt(index);
                 taskAndCategoryLoader.Tasks.Remove(taskToDelete);
-                if (TaskRemove != null)
-                    TaskRemove(taskToDelete);
+                TaskRemove?.Invoke(taskToDelete);
             }
         }
 
@@ -196,8 +194,7 @@ namespace PinzOutlookAddIn.Service
                 taskAndCategoryLoader.UpdateTask(newTask, Item as Outlook.TaskItem, taskAndCategoryLoader.Categories, taskAndCategoryLoader.DefaultCategory);
 
                 taskAndCategoryLoader.Tasks.Add(newTask);
-                if (TaskAdd != null)
-                    TaskAdd(newTask);
+                TaskAdd?.Invoke(newTask);
             }
         }
 

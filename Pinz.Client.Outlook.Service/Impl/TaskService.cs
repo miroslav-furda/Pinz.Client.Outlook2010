@@ -12,14 +12,14 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
     public class TaskService : ITaskService
     {
         private IOutlookService outlookService;
-        private TaskFilter taskFilter;
+        private TaskFilter _taskFilter;
         private Dictionary<OutlookCategory, ObservableCollection<OutlookTask>> tasks;
 
         [Inject]
         public TaskService(IOutlookService outlookService, TaskFilter filter)
         {
             this.outlookService = outlookService;
-            this.taskFilter = filter;
+            this._taskFilter = filter;
 
             tasks = new Dictionary<OutlookCategory, ObservableCollection<OutlookTask>>();
 
@@ -27,7 +27,7 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
             outlookService.TaskChange += TaskDAO_TaskChange;
             outlookService.TaskRemove += TaskDAO_TaskRemove;
 
-            taskFilter.PropertyChanged += TaskFilter_PropertyChanged;
+            _taskFilter.PropertyChanged += TaskFilter_PropertyChanged;
         }
 
         public void StartTask(OutlookTask task)
@@ -149,25 +149,31 @@ namespace Com.Pinz.Client.Outlook.Service.Impl
         {
             bool retval = true;
 
-            if (!taskFilter.Complete)
+            if (!_taskFilter.Complete)
             {
-                retval = taskitem.IsComplete.Equals(false);
+                retval = taskitem.Status != TaskStatus.TaskComplete;
             }
 
-            if (retval && taskFilter.DueToday)
+            if (retval && _taskFilter.DueToday)
             {
                 System.DateTime today = System.DateTime.Today;
                 retval = taskitem.DueDate.Equals(today);
             }
 
-            if (retval && taskFilter.InProgress)
+            if (retval && _taskFilter.InProgress && _taskFilter.NotStarted)
             {
-                retval = taskitem.Status.Equals(TaskStatus.TaskInProgress);
-                if (taskFilter.NotStarted)
-                {
-                    retval = taskitem.Status.Equals(TaskStatus.TaskNotStarted);
-                }
+                retval = taskitem.Status == TaskStatus.TaskInProgress ||
+                   taskitem.Status == TaskStatus.TaskNotStarted;
             }
+            else if (retval && _taskFilter.InProgress)
+            {
+                retval = taskitem.Status == TaskStatus.TaskInProgress;
+            }
+            else if (retval && _taskFilter.NotStarted)
+            {
+                retval = taskitem.Status == TaskStatus.TaskNotStarted;
+            }
+
             return retval;
         }
         #endregion

@@ -57,7 +57,7 @@ namespace PinzOutlookAddIn.Service
             TargetTask.TaskName = SourceTaskItem.Subject;
             TargetTask.Body = SourceTaskItem.Body;
             TargetTask.IsComplete = SourceTaskItem.Complete;
-            //TargetTask.Owner = SourceTaskItem.Owner;
+            TargetTask.Owner = SourceTaskItem.Owner;
             TargetTask.CreationTime = SourceTaskItem.CreationTime;
             TargetTask.DateCompleted = (SourceTaskItem.DateCompleted.Year == 4501 ? (DateTime?)null : SourceTaskItem.DateCompleted);
             TargetTask.StartDate = (SourceTaskItem.StartDate.Year == 4501 ? (DateTime?)null : SourceTaskItem.StartDate);
@@ -75,7 +75,7 @@ namespace PinzOutlookAddIn.Service
             targetOutloookTaskItem.Subject = sourceTask.TaskName;
             targetOutloookTaskItem.Body = sourceTask.Body;
             targetOutloookTaskItem.Complete = sourceTask.IsComplete;
-            //targetOutloookTaskItem.Owner = sourceTask.Owner;
+            targetOutloookTaskItem.Owner = sourceTask.Owner;
             targetOutloookTaskItem.DateCompleted = sourceTask.DateCompleted ?? MAX_DATE;
             targetOutloookTaskItem.StartDate = sourceTask.StartDate ?? MAX_DATE;
             targetOutloookTaskItem.DueDate = sourceTask.DueDate ?? MAX_DATE;
