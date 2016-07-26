@@ -29,12 +29,12 @@
     <AssemblyName>PinzOutlookAddIn</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
-    <IsWebBootstrapper>False</IsWebBootstrapper>
+    <IsWebBootstrapper>True</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <PublishUrl>publish\</PublishUrl>
-    <InstallUrl />
+    <PublishUrl>ftp://ftp.pinzonline.com/public_html/download/</PublishUrl>
+    <InstallUrl>http://www.pinzonline.com/download/PinzOutlookAddIn/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
+    <ApplicationVersion>1.0.0.2</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -59,7 +59,7 @@
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
       <Visible>False</Visible>
-      <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft Visual Studio 2010-Tools für Office-Laufzeit %28x86 und x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
@@ -177,8 +177,8 @@
       <HintPath>..\packages\NLog.4.3.5\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pinz.Client.App, Version=0.9.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.2.0\lib\net452\Pinz.Client.App.dll</HintPath>
+    <Reference Include="Pinz.Client.App, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pinz.Client.App.0.9.3.0\lib\net452\Pinz.Client.App.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.Client.Base, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -190,19 +190,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.Client.Module.Administration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.2.0\lib\net452\Pinz.Client.Module.Administration.dll</HintPath>
+      <HintPath>..\packages\Pinz.Client.App.0.9.3.0\lib\net452\Pinz.Client.Module.Administration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.Client.Module.Login, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.2.0\lib\net452\Pinz.Client.Module.Login.dll</HintPath>
+      <HintPath>..\packages\Pinz.Client.App.0.9.3.0\lib\net452\Pinz.Client.Module.Login.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.Client.Module.Main, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.2.0\lib\net452\Pinz.Client.Module.Main.dll</HintPath>
+      <HintPath>..\packages\Pinz.Client.App.0.9.3.0\lib\net452\Pinz.Client.Module.Main.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.Client.Module.TaskManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.2.0\lib\net452\Pinz.Client.Module.TaskManager.dll</HintPath>
+      <HintPath>..\packages\Pinz.Client.App.0.9.3.0\lib\net452\Pinz.Client.Module.TaskManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.Client.RemoteServiceConsumer, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
