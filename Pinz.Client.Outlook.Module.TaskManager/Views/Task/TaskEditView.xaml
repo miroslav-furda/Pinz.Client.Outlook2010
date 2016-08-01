@@ -14,9 +14,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <UserControl.Resources>
-        <Image x:Key="OkImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/ok.png" Width="10" Height="10"/>
-        <Image x:Key="CancelImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/cancel.png" Width="10" Height="10"/>
-        <Image x:Key="DeleteImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/delete.png" Width="10" Height="10"/>
         <convert:ParametrizedBooleanToVisibilityConverter x:Key="BoolToVis" />
         <convert:Enum2LocalizedStringConverter x:Key="Enum2LocString"/>
 
@@ -57,8 +54,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0"  Content="{x:Static p:Resources.BodyLabel}" Style="{StaticResource FormLabel}" />
-        <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding Task.Body}" MaxWidth="{Binding ActualWidth, ElementName=fieldsGrid, Mode=OneWay}" 
-                 Style="{StaticResource FormBodyField}" Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/>
+        <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding Task.Body, NotifyOnValidationError=True}" MaxWidth="{Binding ActualWidth, ElementName=fieldsGrid, Mode=OneWay}"  Style="{StaticResource FormBodyField}"/>
 
         <Grid x:Name="fieldsGrid" Grid.Row="2" Grid.IsSharedSizeScope="True">
             <Grid.ColumnDefinitions>
@@ -84,8 +80,7 @@
             <TextBox Grid.Column="3" Grid.Row="1" Text="{Binding Task.StartDate, StringFormat=\{0:d\} }" IsEnabled="False" Style="{StaticResource FormField}"/>
 
             <Label Grid.Column="0" Grid.Row="2"  Content="{x:Static p:Resources.DueDateLabel}" Style="{StaticResource FormLabel}" />
-            <DatePicker Grid.Column="1" Grid.Row="2" SelectedDate="{Binding Task.DueDate}" Style="{StaticResource FormField}"
-                        Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/>
+            <DatePicker Grid.Column="1" Grid.Row="2" SelectedDate="{Binding Task.DueDate, NotifyOnValidationError=True}" Style="{StaticResource FormField}"/>
             <Label Grid.Column="2" Grid.Row="2"  Content="{x:Static p:Resources.DateCompletedLabel}" Style="{StaticResource FormLabel}" />
             <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding Task.DateCompleted, StringFormat=\{0:d\} }" IsEnabled="False" Style="{StaticResource FormField}"/>
 
@@ -94,7 +89,8 @@
             <!--" Label Grid.Column="0" Grid.Row="4"  Content="{x:Static p:Resources.OwnerLabel}" Style="{StaticResource FormLabel}" />
             <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Task.Owner}" Style="{StaticResource FormField}" Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/-->
             <Label Grid.Column="0" Grid.Row="4"  Content="{x:Static p:Resources.StatusLabel}" Style="{StaticResource FormLabel}" />
-            <ComboBox Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Task.Status, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource StatusEnumValues}}"  Style="{StaticResource FormField}" Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}">
+            <ComboBox Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Task.Status, Mode=TwoWay, NotifyOnValidationError=True}" ItemsSource="{Binding Source={StaticResource StatusEnumValues}}"  
+                      Style="{StaticResource FormField}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock d:DataContext="{Binding}"  Text="{Binding Converter={StaticResource Enum2LocString}, ConverterParameter={x:Static p:Resources.ResourceManager}}"/>
@@ -105,7 +101,7 @@
             <!--" Label Grid.Column="0" Grid.Row="5"  Content="{x:Static p:Resources.PriorityLabel}" Style="{StaticResource FormLabel}" />
             <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Task.Priority}" Style="{StaticResource FormField}" Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/-->
             <Label Grid.Column="2" Grid.Row="4"  Content="{x:Static p:Resources.ActualWorkLabel}" Style="{StaticResource FormLabel}" />
-            <Slider Grid.Column="3" Grid.Row="4" Value="{Binding Task.ActualWork}" Style="{StaticResource FormField}" Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"
+            <Slider Grid.Column="3" Grid.Row="4" Value="{Binding Task.ActualWork, NotifyOnValidationError=True}" Style="{StaticResource FormField}"
                     TickFrequency="25" IsSnapToTickEnabled="True" Maximum="100"/>
         </Grid>
 
@@ -119,9 +115,33 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="{StaticResource DeleteImage}" ToolTip="{x:Static p:Resources.Button_Delete_Tooltip}" Command="{Binding Path=DeleteCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Right"  />
-            <Button Grid.Column="1" Content="{StaticResource OkImage}" ToolTip="{x:Static p:Resources.Button_Ok}" Command="{Binding Path=OkCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Right"  />
-            <Button Grid.Column="2" Content="{StaticResource CancelImage}" ToolTip="{x:Static p:Resources.Button_Cancel}" Command="{Binding Path=CancelCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left"  />
+            <Button Grid.Column="0" ToolTip="{x:Static p:Resources.Button_Delete_Tooltip}" Command="{Binding Path=DeleteCommand}" VerticalAlignment="Center" Margin="5,0,0,0" 
+                    HorizontalAlignment="Right"   Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                <Rectangle Width="10" Height="10" 
+                       Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_delete}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button Grid.Column="1" ToolTip="{x:Static p:Resources.Button_Ok}" Command="{Binding Path=OkCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Right"  
+                    Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                <Rectangle Width="10" Height="10" 
+                       Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_save}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button Grid.Column="2" ToolTip="{x:Static p:Resources.Button_Cancel}" Command="{Binding Path=CancelCommand}" VerticalAlignment="Center" 
+                    Margin="5,0,0,0" HorizontalAlignment="Left"   Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                <Rectangle Width="10" Height="10" 
+                       Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_cancel}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
 
         </Grid>
     </Grid>
