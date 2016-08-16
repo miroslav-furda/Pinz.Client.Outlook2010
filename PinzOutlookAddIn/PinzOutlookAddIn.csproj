@@ -32,9 +32,9 @@
     <IsWebBootstrapper>True</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <PublishUrl>ftp://ftp.pinzonline.com/public_html/download/</PublishUrl>
-    <InstallUrl>http://www.pinzonline.com/download/PinzOutlookAddIn/</InstallUrl>
+    <InstallUrl>http://www.pinzonline.com/download/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.2</ApplicationVersion>
+    <ApplicationVersion>1.0.0.4</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -324,6 +324,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="PinzOutlookAddInCert.p12" />
     <None Include="PinzOutlookAddIn_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -401,10 +402,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>PinzOutlookAddIn_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>PinzOutlookAddInCert.p12</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>3B389DDD724B7C03E1D546AF5796ED29C7CE2FA0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D01DB8BA64732FC73437A566937E8B771DEE09E3</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
