@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="Com.Pinz.Client.Module.Administration.View.UserSelfAdministrationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:prism="http://www.codeplex.com/prism"
+             xmlns:local="clr-namespace:Com.Pinz.Client.Module.Administration.View"
+             xmlns:p="clr-namespace:Com.Pinz.Client.Module.Administration.Properties"
+             xmlns:extensions="clr-namespace:Com.Pinz.Client.Commons.Wpf.Extensions;assembly=Pinz.Client.Commons"
+             xmlns:convert="clr-namespace:Com.Pinz.Client.Commons.Wpf.Converter;assembly=Pinz.Client.Commons"
+             mc:Ignorable="d" 
+             xmlns:dvm="clr-namespace:Com.Pinz.Client.Module.Administration.DesignModel"
+             d:DataContext ="{d:DesignInstance {x:Type dvm:UserSelfAdministrationDesignModel}, IsDesignTimeCreatable=True}"             
+             d:DesignHeight="400" d:DesignWidth="300">
+    <UserControl.Resources>
+        <convert:ParametrizedBooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <prism:InteractionRequestTrigger SourceObject="{Binding ChangeNotification, Mode=OneWay}">
+            <prism:PopupWindowAction  CenterOverAssociatedObject="True" IsModal="True" />
+        </prism:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="0"  Content="{Binding CurrentUser.EMail}" HorizontalAlignment="Center" Margin="10"/>
+
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="DodgerBlue" BorderThickness="0,3,0,0">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0"  Content="{x:Static p:Resources.User_FirstName}" Margin="2"/>
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding CurrentUser.FirstName}" IsEnabled="{Binding IsUserInEditMode}" Margin="2"
+                         Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/>
+                <Label Grid.Column="0" Grid.Row="1"  Content="{x:Static p:Resources.User_FamilyName}" Margin="2"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding CurrentUser.FamilyName}" IsEnabled="{Binding IsUserInEditMode}" Margin="2"
+                         Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/>
+
+                <Button Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2"  Command="{Binding Path=StartUserChangesCommand}" VerticalAlignment="Center" Margin="5" 
+                        Visibility="{Binding IsUserInEditMode, Converter={StaticResource BoolToVis},  ConverterParameter=Inverted}" HorizontalAlignment="Right"  
+                        Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Rectangle Width="10" Height="10" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_edit}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Visibility="{Binding IsUserInEditMode, Converter={StaticResource BoolToVis},  ConverterParameter=Normal}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Command="{Binding Path=SaveUserChangesCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Right"  
+                        Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                        <Rectangle Width="10" Height="10" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_save}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+                    <Button Grid.Column="1" Command="{Binding Path=CancelUserChangesCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" 
+                        Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                        <Rectangle Width="10" Height="10" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_cancel}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+                </Grid>
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="2" BorderBrush="DodgerBlue" BorderThickness="0,3,0,0" >
+            <Grid>
+                <Button Content="{x:Static p:Resources.ChangePaswword_Button}" Command="{Binding Path=StartPasswordChangeCommand}" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Center"
+                        Visibility="{Binding IsPasswordInEditMode, Converter={StaticResource BoolToVis},  ConverterParameter=Inverted}"/>
+                <Grid Margin="5" Visibility="{Binding IsPasswordInEditMode, Converter={StaticResource BoolToVis},  ConverterParameter=Normal}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0"  Content="{x:Static p:Resources.User_OldPassword}" Margin="2"/>
+                    <PasswordBox Grid.Column="1" Grid.Row="0" 
+                             extensions:PasswordBoxAssistant.BindPassword="true"  extensions:PasswordBoxAssistant.BoundPassword="{Binding PasswordChangeModel.OldPassword, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                             Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"  Margin="2"/>
+                    <Label Grid.Column="0" Grid.Row="1"  Content="{x:Static p:Resources.User_NewPassword}" Margin="2"/>
+                    <PasswordBox Grid.Column="1" Grid.Row="1" 
+                             extensions:PasswordBoxAssistant.BindPassword="true"  extensions:PasswordBoxAssistant.BoundPassword="{Binding PasswordChangeModel.NewPassword, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                             Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}" Margin="2"/>
+                    <Label Grid.Column="0" Grid.Row="2"  Content="{x:Static p:Resources.User_NewPassword2}" Margin="2"/>
+                    <PasswordBox Grid.Column="1" Grid.Row="2" 
+                             extensions:PasswordBoxAssistant.BindPassword="true"  extensions:PasswordBoxAssistant.BoundPassword="{Binding PasswordChangeModel.NewPassword2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                             Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}" Margin="2"/>
+                    <Label Grid.Column="0" Grid.Row="3"  Content="{x:Static p:Resources.User_NewPasswordStrength}" Margin="2"/>
+                    <Label Grid.Column="1" Grid.Row="3" Content="{Binding PasswordChangeModel.PasswordStrength, Mode=OneWay}" Margin="2"/>
+
+                    <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Command="{Binding Path=ChangeUserPasswordCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Right"
+                        Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                            <Rectangle Width="10" Height="10" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_save}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+
+                        <Button Grid.Column="1" Command="{Binding Path=CancelPasswordChangeCommand}" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left"  
+                                Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+                            <Rectangle Width="10" Height="10" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_cancel}" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

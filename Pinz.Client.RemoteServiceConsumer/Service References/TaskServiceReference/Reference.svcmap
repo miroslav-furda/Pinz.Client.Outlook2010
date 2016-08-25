@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b3979653-3e52-4b2a-b791-072a6aa1d0b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TaskService4.xsd" MetadataType="Schema" ID="d6d2b93d-5136-404a-8c75-841b606c2ee6" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TaskService41.xsd" MetadataType="Schema" ID="00742f42-b509-468e-9ec0-98754a3ba3c9" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TaskService2.wsdl" MetadataType="Wsdl" ID="be993434-78a6-487d-9a19-36ca5266080c" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?wsdl" />
+    <MetadataFile FileName="TaskService1.disco" MetadataType="Disco" ID="9c771d8b-a53d-40b7-ada0-bb5173078faf" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?disco" />
+    <MetadataFile FileName="TaskService21.wsdl" MetadataType="Wsdl" ID="f19fcd83-286e-4091-bcfd-5b66bc7ad887" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="TaskService42.xsd" MetadataType="Schema" ID="9257a505-db29-4e08-aea6-587425962d66" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TaskService43.xsd" MetadataType="Schema" ID="ff2fc7df-bec7-4550-b25b-8601e43a791a" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

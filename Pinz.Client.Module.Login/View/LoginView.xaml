@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Com.Pinz.Client.Module.Login.View.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Com.Pinz.Client.Module.Login.View"
+             xmlns:convert="clr-namespace:Com.Pinz.Client.Commons.Wpf.Converter;assembly=Pinz.Client.Commons"
+             xmlns:extensions="clr-namespace:Com.Pinz.Client.Commons.Wpf.Extensions;assembly=Pinz.Client.Commons"
+             xmlns:p="clr-namespace:Com.Pinz.Client.Module.Login.Properties"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Grid Margin="0,20,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/pinz/pinz_64x64.png" Margin="10" Stretch="None"/>
+
+        <Label Grid.Row="2" Grid.Column="1" Content="{x:Static p:Resources.LoginView_UserName}" Margin="2"/>
+        <TextBox Grid.Row="2" Grid.Column="2"  Text="{Binding UserName, UpdateSourceTrigger=LostFocus}"  Margin="2" 
+                 Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/>
+        <Label Grid.Row="3" Grid.Column="1" Content="{x:Static p:Resources.LoginView_Password}" Margin="2"/>
+        <PasswordBox Grid.Row="3" Grid.Column="2"  extensions:PasswordBoxAssistant.BindPassword="true"  extensions:PasswordBoxAssistant.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="2" Validation.ErrorTemplate="{StaticResource errorTemplateSilverlightStyle}"/>
+
+        <Border Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" BorderBrush="DodgerBlue" BorderThickness="0,3,0,0" Margin="0,5,0,0">
+            <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Path=AutoLogin, Mode=TwoWay}" Content="{x:Static p:Resources.LoginView_AutoLogin}" FontSize="10" Margin="2"></CheckBox>
+        </Border>
+
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Content="{x:Static p:Resources.LoginView_LoginButton}" IsDefault="True"
+                ToolTip="{x:Static p:Resources.LoginView_LoginButton_Tooltip}" Command="{Binding Path=LoginCommand}" 
+                VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" Padding="20,5" />
+        <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Content="{Binding ErrorMessage}" Foreground="Red" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

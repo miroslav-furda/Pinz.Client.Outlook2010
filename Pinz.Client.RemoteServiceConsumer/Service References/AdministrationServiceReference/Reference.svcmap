@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="63f51b13-5ab9-4e70-b142-b95d71ad234b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net//AdministrationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AdministrationService3.xsd" MetadataType="Schema" ID="2914d478-60bd-47ff-ac58-7901b8e555f0" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AdministrationService31.xsd" MetadataType="Schema" ID="4fce0aac-f3cd-4f42-9102-6dff0fc37d94" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AdministrationService1.disco" MetadataType="Disco" ID="70e88fb5-8e75-4af6-a7db-609ee4b7a8ea" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?disco" />
+    <MetadataFile FileName="AdministrationService2.wsdl" MetadataType="Wsdl" ID="24a3699e-d014-4d06-b11c-a811351d78b9" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?wsdl" />
+    <MetadataFile FileName="AdministrationService21.wsdl" MetadataType="Wsdl" ID="0f0e2d63-1f49-4fc4-bdb7-54f2f6695737" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AdministrationService32.xsd" MetadataType="Schema" ID="d75a4c21-6bf6-4346-88b9-d4a70164ad5e" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

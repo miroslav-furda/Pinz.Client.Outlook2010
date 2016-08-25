@@ -66,18 +66,6 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pinz.Client.Base, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.Base.0.9.1.0\lib\net452\Pinz.Client.Base.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.Commons, Version=0.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.Base.0.9.1.0\lib\net452\Pinz.Client.Commons.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.RemoteServiceConsumer, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.Base.0.9.1.0\lib\net452\Pinz.Client.RemoteServiceConsumer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Prism, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
@@ -181,6 +169,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Pinz.Client.Commons\Pinz.Client.Commons.csproj">
+      <Project>{64bbc1dc-7f3b-4bbf-871d-fabfd6ea3721}</Project>
+      <Name>Pinz.Client.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pinz.Client.Outlook.Service\Pinz.Client.Outlook.Service.csproj">
       <Project>{91690085-1c83-4e95-b4ef-fc7aeeba9ca2}</Project>
       <Name>Pinz.Client.Outlook.Service</Name>

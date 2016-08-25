@@ -34,7 +34,7 @@
     <PublishUrl>ftp://ftp.pinzonline.com/public_html/download/</PublishUrl>
     <InstallUrl>http://www.pinzonline.com/download/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.4</ApplicationVersion>
+    <ApplicationVersion>1.0.0.5</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -179,38 +179,6 @@
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.3.5\lib\net45\NLog.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.App, Version=0.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.5.0\lib\net452\Pinz.Client.App.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.Base, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.Base.0.9.1.0\lib\net452\Pinz.Client.Base.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.Commons, Version=0.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.Base.0.9.1.0\lib\net452\Pinz.Client.Commons.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.Module.Administration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.5.0\lib\net452\Pinz.Client.Module.Administration.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.Module.Login, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.5.0\lib\net452\Pinz.Client.Module.Login.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.Module.Main, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.5.0\lib\net452\Pinz.Client.Module.Main.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.Module.TaskManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.App.0.9.5.0\lib\net452\Pinz.Client.Module.TaskManager.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Pinz.Client.RemoteServiceConsumer, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pinz.Client.Base.0.9.1.0\lib\net452\Pinz.Client.RemoteServiceConsumer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Pinz.DomainModel, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -377,6 +345,26 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Pinz.Client.Commons\Pinz.Client.Commons.csproj">
+      <Project>{64bbc1dc-7f3b-4bbf-871d-fabfd6ea3721}</Project>
+      <Name>Pinz.Client.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pinz.Client.Module.Administration\Pinz.Client.Module.Administration.csproj">
+      <Project>{443c39e4-79c4-4c24-bdc3-136033375319}</Project>
+      <Name>Pinz.Client.Module.Administration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pinz.Client.Module.Login\Pinz.Client.Module.Login.csproj">
+      <Project>{085572f8-2fbb-47f6-8e5f-12341ebc1159}</Project>
+      <Name>Pinz.Client.Module.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pinz.Client.Module.Main\Pinz.Client.Module.Main.csproj">
+      <Project>{2e531ea6-a500-4ae2-880b-fa49d1e2dd16}</Project>
+      <Name>Pinz.Client.Module.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pinz.Client.Module.TaskManager\Pinz.Client.Module.TaskManager.csproj">
+      <Project>{fb721829-ce20-482a-a5e3-e544450ec4cc}</Project>
+      <Name>Pinz.Client.Module.TaskManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pinz.Client.Outlook.Module.TaskManager\Pinz.Client.Outlook.Module.TaskManager.csproj">
       <Project>{3025aa45-5c68-40a8-b0b8-46eda39fc0fa}</Project>
       <Name>Pinz.Client.Outlook.Module.TaskManager</Name>
@@ -384,6 +372,10 @@
     <ProjectReference Include="..\Pinz.Client.Outlook.Service\Pinz.Client.Outlook.Service.csproj">
       <Project>{91690085-1c83-4e95-b4ef-fc7aeeba9ca2}</Project>
       <Name>Pinz.Client.Outlook.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pinz.Client.RemoteServiceConsumer\Pinz.Client.RemoteServiceConsumer.csproj">
+      <Project>{ac10ed84-4efc-41f3-acdd-709b51befbb3}</Project>
+      <Name>Pinz.Client.RemoteServiceConsumer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

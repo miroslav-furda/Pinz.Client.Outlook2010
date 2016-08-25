@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2478ff92-4b79-4606-8211-142a957919d6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AuthorisationService1.disco" MetadataType="Disco" ID="9d258200-ecd4-4f70-b965-5e6294282612" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?disco" />
+    <MetadataFile FileName="AuthorisationService3.xsd" MetadataType="Schema" ID="7174b6a6-08ac-484e-90d0-885f6a0a2d36" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AuthorisationService31.xsd" MetadataType="Schema" ID="9d8f0b22-07ed-426f-8584-23a4976ea87a" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AuthorisationService32.xsd" MetadataType="Schema" ID="49c4d77f-28e8-4c83-935d-fbd3db858219" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AuthorisationService2.wsdl" MetadataType="Wsdl" ID="13545733-6b89-405c-aaa0-2f2fcc0d1c14" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AuthorisationService21.wsdl" MetadataType="Wsdl" ID="56d4adf0-9cba-4e15-b456-8aacf4962e3c" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
