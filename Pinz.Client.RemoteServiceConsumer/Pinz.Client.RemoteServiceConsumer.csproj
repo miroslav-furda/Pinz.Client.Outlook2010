@@ -262,12 +262,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pinz.Client.Commons\Pinz.Client.Commons.csproj">
-      <Project>{64bbc1dc-7f3b-4bbf-871d-fabfd6ea3721}</Project>
-      <Name>Pinz.Client.Commons</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\AdministrationServiceReference\AdministrationService1.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -278,6 +272,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\TaskServiceReference\TaskService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pinz.Client.Commons\Pinz.Client.Commons.csproj">
+      <Project>{64bbc1dc-7f3b-4bbf-871d-fabfd6ea3721}</Project>
+      <Name>Pinz.Client.Commons</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

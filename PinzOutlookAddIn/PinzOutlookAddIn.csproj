@@ -59,7 +59,7 @@
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
       <Visible>False</Visible>
-      <ProductName>Microsoft Visual Studio 2010-Tools für Office-Laufzeit %28x86 und x64%29</ProductName>
+      <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
@@ -345,6 +345,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\admin.png" />
+    <Resource Include="Resources\pin_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Entypo-license.txt" />
+    <Content Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Pinz.Client.Commons\Pinz.Client.Commons.csproj">
       <Project>{64bbc1dc-7f3b-4bbf-871d-fabfd6ea3721}</Project>
       <Name>Pinz.Client.Commons</Name>
@@ -377,14 +385,6 @@
       <Project>{ac10ed84-4efc-41f3-acdd-709b51befbb3}</Project>
       <Name>Pinz.Client.RemoteServiceConsumer</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\admin.png" />
-    <Resource Include="Resources\pin_64x64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Entypo-license.txt" />
-    <Content Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
