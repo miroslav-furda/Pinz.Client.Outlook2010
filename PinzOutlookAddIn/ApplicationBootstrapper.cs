@@ -142,36 +142,35 @@ namespace PinzOutlookAddIn
             if (Application.Current == null)
             {
                 // create the Application object
-                new Application();
+                new Application() { ShutdownMode = ShutdownMode.OnExplicitShutdown };
+            }
+            try
+            {
+                // merge in your application resources
+                //MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive!
+                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
+                         new Uri("MahApps.Metro;component/Styles/Controls.xaml", UriKind.Relative)) as ResourceDictionary);
+                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
+                        new Uri("MahApps.Metro;component/Styles/Fonts.xaml", UriKind.Relative)) as ResourceDictionary);
+                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
+                        new Uri("MahApps.Metro;component/Styles/Colors.xaml", UriKind.Relative)) as ResourceDictionary);
+                //Accent and AppTheme setting
+                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
+                        new Uri("MahApps.Metro;component/Styles/Accents/Blue.xaml", UriKind.Relative)) as ResourceDictionary);
+                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
+                        new Uri("MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.Relative)) as ResourceDictionary);
 
-                try
-                {
-                    // merge in your application resources
-                    //MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive!
-                    Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
-                             new Uri("MahApps.Metro;component/Styles/Controls.xaml", UriKind.Relative)) as ResourceDictionary);
-                    Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
-                            new Uri("MahApps.Metro;component/Styles/Fonts.xaml", UriKind.Relative)) as ResourceDictionary);
-                    Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
-                            new Uri("MahApps.Metro;component/Styles/Colors.xaml", UriKind.Relative)) as ResourceDictionary);
-                    //Accent and AppTheme setting
-                    Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
-                            new Uri("MahApps.Metro;component/Styles/Accents/Blue.xaml", UriKind.Relative)) as ResourceDictionary);
-                    Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
-                            new Uri("MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.Relative)) as ResourceDictionary);
+                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(
+                    new Uri("PinzOutlookAddIn;component/Resources/Icons.xaml", UriKind.Relative)) as ResourceDictionary);
 
-                    Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent( 
-                        new Uri("PinzOutlookAddIn;component/Resources/Icons.xaml", UriKind.Relative)) as ResourceDictionary);
-
-                     ResourceDictionary rd = Application.LoadComponent(
-                            new Uri("Pinz.Client.Commons;component/Themes/PinzResourceDictionary.xaml", UriKind.Relative)) as ResourceDictionary;
-                    Application.Current.Resources.MergedDictionaries.Add(rd);
-                }
-                catch (Exception ex)
-                {
-                    Log.Error("Fialed to load application resources!", ex);
-                    throw ex;
-                }
+                ResourceDictionary rd = Application.LoadComponent(
+                       new Uri("Pinz.Client.Commons;component/Themes/PinzResourceDictionary.xaml", UriKind.Relative)) as ResourceDictionary;
+                Application.Current.Resources.MergedDictionaries.Add(rd);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Fialed to load application resources!", ex);
+                throw ex;
             }
         }
 
