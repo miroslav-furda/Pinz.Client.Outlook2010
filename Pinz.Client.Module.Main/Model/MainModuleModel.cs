@@ -33,7 +33,7 @@ namespace Com.Pinz.Client.Module.Main.Model
             timeoutErrorEvent.Subscribe(TimeoutEventHandler);
         }
 
-        private void TimeoutEventHandler(TimeoutException obj)
+        private void TimeoutEventHandler(Exception obj)
         {
             TimeoutNotification.Raise(new Notification()
             {

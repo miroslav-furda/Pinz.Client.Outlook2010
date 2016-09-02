@@ -70,6 +70,13 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.Infrastructure
                     Log.Fatal("Falied to execute call ! ", ex);
                     throw;
                 }
+                catch (EndpointNotFoundException ex2)
+                {
+                    serviceBase.CloseChannel();
+                    indicator.IsServiceRunning = false;
+                    Log.Fatal("Falied to execute call ! ", ex2);
+                    throw new TimeoutException();
+                }
                 catch (Exception ex2)
                 {
                     serviceBase.CloseChannel();
@@ -137,6 +144,13 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.Infrastructure
                 Log.Fatal("Falied to execute call ! ", ex);
                 throw;
             }
+            catch (EndpointNotFoundException ex2)
+            {
+                serviceBase.CloseChannel();
+                indicator.IsServiceRunning = false;
+                Log.Fatal("Falied to execute call ! ", ex2);
+                throw new TimeoutException();
+            }
             catch (Exception ex2)
             {
                 serviceBase.CloseChannel();
@@ -170,11 +184,18 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.Infrastructure
                 Log.Fatal("Falied to execute call ! ", ex);
                 throw;
             }
-            catch (Exception ex2)
+            catch (EndpointNotFoundException ex2)
             {
                 serviceBase.CloseChannel();
                 indicator.IsServiceRunning = false;
                 Log.Fatal("Falied to execute call ! ", ex2);
+                throw new TimeoutException();
+            }
+            catch (Exception ex3)
+            {
+                serviceBase.CloseChannel();
+                indicator.IsServiceRunning = false;
+                Log.Fatal("Falied to execute call ! ", ex3);
                 throw;
             }
         }

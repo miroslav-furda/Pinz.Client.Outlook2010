@@ -3,7 +3,7 @@ using System;
 
 namespace Com.Pinz.Client.Commons.Event
 {
-    public class TimeoutErrorEvent : PubSubEvent<TimeoutException>
+    public class TimeoutErrorEvent : PubSubEvent<Exception>
     {
     }
 }
