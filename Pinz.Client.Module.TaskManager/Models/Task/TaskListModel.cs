@@ -39,16 +39,13 @@ namespace Com.Pinz.Client.Module.TaskManager.Models
             {
                 if(SetProperty(ref _category, value))
                 {
-                    Tasks.Clear();
-                    Tasks.AddRange(Category.Tasks);
+                    UpdateTaskObservableCollection();
                 }
-                //LoadTasks();
             }
         }
 
         private readonly ITaskRemoteService _service;
         private readonly TaskFilter _taskFilter;
-        //private List<DomainModel.Task> _allTasksFromServer;
         private User _currentUser;
         private IEventAggregator _eventAggregator;
         private readonly IMapper _mapper;
@@ -75,8 +72,6 @@ namespace Com.Pinz.Client.Module.TaskManager.Models
             var toDelete = Category.Tasks.Where(t => t.TaskId == taskToDelete.TaskId).First();
             Category.Tasks.Remove(taskToDelete);
             Tasks.Remove(taskToDelete);
-            //var allTaskFromServerToDelete = _allTasksFromServer.Where(t => t.TaskId == taskToDelete.TaskId).First();
-            //_allTasksFromServer.Remove(allTaskFromServerToDelete);
         }
 
 
@@ -85,7 +80,7 @@ namespace Com.Pinz.Client.Module.TaskManager.Models
         private void Filter_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (Category.Tasks != null)
-                updateTaskObservableCollection();
+                UpdateTaskObservableCollection();
         }
 
         private bool filterTasks(DomainModel.Task taskitem)
@@ -187,30 +182,7 @@ namespace Com.Pinz.Client.Module.TaskManager.Models
             }
         }
 
-        /*
-        private async System.Threading.Tasks.Task LoadTasks()
-        {
-            if (Category != null)
-            {
-                try
-                {
-                    _allTasksFromServer = await _service.ReadAllTasksByCategoryAsync(Category);
-                    updateTaskObservableCollection();
-                    Category.Tasks = Tasks;
-                }
-                catch (TimeoutException timeoutEx)
-                {
-                    _eventAggregator.GetEvent<TimeoutErrorEvent>().Publish(timeoutEx);
-                }
-            }
-            else
-            {
-                Tasks.Clear();
-            }
-        }
-        */
-
-        private void updateTaskObservableCollection()
+        private void UpdateTaskObservableCollection()
         {
             Tasks.Clear();
             foreach (var task in Category.Tasks)
