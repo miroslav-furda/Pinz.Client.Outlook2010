@@ -156,6 +156,9 @@
   <data name="Edit_Button" xml:space="preserve">
     <value>Edit Task</value>
   </data>
+  <data name="FinishTask_Tooltip" xml:space="preserve">
+    <value>Mark this task as finished</value>
+  </data>
   <data name="NewCategory" xml:space="preserve">
     <value>New Category</value>
   </data>

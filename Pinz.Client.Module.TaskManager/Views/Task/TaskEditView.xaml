@@ -50,7 +50,7 @@
         </prism:InteractionRequestTrigger>
     </i:Interaction.Triggers>
 
-    <Grid Visibility="{Binding EditMode, Converter={StaticResource BoolToVis} ,  ConverterParameter=Normal}" Margin="5,2,5,5">
+    <Grid Visibility="{Binding EditMode, Converter={StaticResource BoolToVis} ,  ConverterParameter=Normal}" Margin="5,0,5,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

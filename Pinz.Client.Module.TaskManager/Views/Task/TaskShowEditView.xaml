@@ -9,14 +9,12 @@
              xmlns:prism="http://www.codeplex.com/prism"
              xmlns:convertLoc="clr-namespace:Com.Pinz.Client.Module.TaskManager.Infrastructure.Converter"
              xmlns:ext="clr-namespace:Com.Pinz.Client.Commons.Wpf.Extensions;assembly=Pinz.Client.Commons"
+             xmlns:status="clr-namespace:Com.Pinz.DomainModel;assembly=Pinz.DomainModel"
              mc:Ignorable="d" 
              xmlns:dvm="clr-namespace:Com.Pinz.Client.Module.TaskManager.DesignModels;assembly=Pinz.Client.Module.TaskManager.DesignModels"
              d:DataContext ="{d:DesignInstance {x:Type dvm:TaskShowEditDesignModel}, IsDesignTimeCreatable=True}"
              d:DesignHeight="100" d:DesignWidth="300">
     <UserControl.Resources>
-        <Image x:Key="StartImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/start.png" Width="10" Height="10"/>
-        <!--Image x:Key="InProgressImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/forward.png" Width="10" Height="10"/-->
-        <Image x:Key="EditImage" Source="pack://application:,,,/Pinz.Client.Commons;Component/Resources/edit.png" Width="10" Height="10"/>
         <convertLoc:CategoryToCompleteBool x:Key="CategoryToBool" />
         <convert:InverseBooleanConverter x:Key="InverseBool"/>
         <convert:ParametrizedBooleanToVisibilityConverter x:Key="BoolToVisibilityConv"/>
@@ -38,11 +36,11 @@
         </Style>
         <Style x:Key="finishedTask" TargetType="TextBlock">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=Task.IsComplete}" Value="True">
+                <DataTrigger Binding="{Binding Path=Task.Status}" Value="{x:Static status:TaskStatus.TaskComplete}">
                     <Setter Property="TextBlock.TextDecorations" Value="Strikethrough" />
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Path=Task.IsComplete}" Value="False">
+                <DataTrigger Binding="{Binding Path=Task.Status}" Value="{x:Static status:TaskStatus.TaskNotStarted}">
                     <Setter Property="TextBlock.TextDecorations" Value="None" />
                 </DataTrigger>
             </Style.Triggers>
@@ -65,7 +63,7 @@
 
         <CheckBox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding Task.Status, Converter={StaticResource CategoryToBool}}"
                   Command="{Binding CompleteCommand}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}, Mode=OneWay}"
-                  IsEnabled="{Binding EditMode, Converter={StaticResource InverseBool}}"/>
+                  IsEnabled="{Binding EditMode, Converter={StaticResource InverseBool}}" ToolTip="{x:Static p:Resources.FinishTask_Tooltip}" Margin="5,0,0,0"/>
 
         <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Task.TaskName}" Margin="3,2,0,0"  VerticalAlignment="Center"  
                    Visibility="{Binding EditMode, Converter={StaticResource BoolToVisibilityConv}, ConverterParameter=Inverted}"

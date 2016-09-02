@@ -178,6 +178,15 @@ namespace Com.Pinz.Client.Module.TaskManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mark this task as finished.
+        /// </summary>
+        public static string FinishTask_Tooltip {
+            get {
+                return ResourceManager.GetString("FinishTask_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Category.
         /// </summary>
         public static string NewCategory {
