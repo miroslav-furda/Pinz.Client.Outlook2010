@@ -751,7 +751,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsdl:import namespace="http://pinzonline.com/services" location="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?wsdl=wsdl0" />
+  <wsdl:import namespace="http://pinzonline.com/services" location="http://pinzservicewe.cloudapp.net/AdministrationService.svc?wsdl=wsdl0" />
   <wsdl:types />
   <wsdl:binding name="WSHttpBinding_IAdministrationService" type="i0:IAdministrationService">
     <wsp:PolicyReference URI="#WSHttpBinding_IAdministrationService_policy" />
@@ -946,9 +946,9 @@
   </wsdl:binding>
   <wsdl:service name="AdministrationService">
     <wsdl:port name="WSHttpBinding_IAdministrationService" binding="tns:WSHttpBinding_IAdministrationService">
-      <soap12:address location="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc/service" />
+      <soap12:address location="http://pinzservicewe.cloudapp.net/AdministrationService.svc/service" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc/service</wsa10:Address>
+        <wsa10:Address>http://pinzservicewe.cloudapp.net/AdministrationService.svc/service</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
             <X509Data>

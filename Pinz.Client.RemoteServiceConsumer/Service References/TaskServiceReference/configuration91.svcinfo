@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="AR2+kRnauEmLOlnDM1AiB3cbbXs=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="/ZVvRnzg3/limQQV9GZRW64pllY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_ITaskService">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_ITaskService" contract="TaskServiceReference.ITaskService" bindingType="wsHttpBinding" address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc/service" bindingConfiguration="WSHttpBinding_ITaskService">
+    <endpoint name="WSHttpBinding_ITaskService" contract="TaskServiceReference.ITaskService" bindingType="wsHttpBinding" address="http://pinzservicewe.cloudapp.net/TaskService.svc/service" bindingConfiguration="WSHttpBinding_ITaskService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc/service</serializedValue>
+          <serializedValue>http://pinzservicewe.cloudapp.net/TaskService.svc/service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

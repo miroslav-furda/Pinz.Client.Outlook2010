@@ -21,16 +21,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://pinzservicewe.cloudapp.net/TaskService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TaskService4.xsd" MetadataType="Schema" ID="d6d2b93d-5136-404a-8c75-841b606c2ee6" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd2" />
-    <MetadataFile FileName="TaskService41.xsd" MetadataType="Schema" ID="00742f42-b509-468e-9ec0-98754a3ba3c9" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd3" />
-    <MetadataFile FileName="TaskService2.wsdl" MetadataType="Wsdl" ID="be993434-78a6-487d-9a19-36ca5266080c" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?wsdl" />
-    <MetadataFile FileName="TaskService1.disco" MetadataType="Disco" ID="9c771d8b-a53d-40b7-ada0-bb5173078faf" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?disco" />
-    <MetadataFile FileName="TaskService21.wsdl" MetadataType="Wsdl" ID="f19fcd83-286e-4091-bcfd-5b66bc7ad887" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="TaskService42.xsd" MetadataType="Schema" ID="9257a505-db29-4e08-aea6-587425962d66" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd0" />
-    <MetadataFile FileName="TaskService43.xsd" MetadataType="Schema" ID="ff2fc7df-bec7-4550-b25b-8601e43a791a" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/TaskService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TaskService.xsd" MetadataType="Schema" ID="b22d7791-4787-4c58-b8ef-599be12ec88c" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/TaskService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TaskService1.xsd" MetadataType="Schema" ID="420017fe-337c-43a0-928b-4c1c912c9dce" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/TaskService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TaskService.wsdl" MetadataType="Wsdl" ID="86e19b70-d3a5-4cf5-9b55-0b545d35c7bb" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/TaskService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="TaskService2.xsd" MetadataType="Schema" ID="a0209ced-8a51-419f-b5ba-44b747240391" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/TaskService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TaskService3.xsd" MetadataType="Schema" ID="44aac424-8851-4832-a422-e61b97458a25" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/TaskService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TaskService1.wsdl" MetadataType="Wsdl" ID="798689ef-9d11-4157-81da-9c61a27f56b6" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/TaskService.svc?wsdl" />
+    <MetadataFile FileName="TaskService.disco" MetadataType="Disco" ID="a7557b8e-a0ee-489b-bf7a-eca25152b68d" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/TaskService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

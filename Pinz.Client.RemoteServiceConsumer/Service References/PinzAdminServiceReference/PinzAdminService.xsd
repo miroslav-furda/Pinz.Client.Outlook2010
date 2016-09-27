@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/PinzAdminService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Com.Pinz.Server.DataAccess.Model" />
+  <xs:import schemaLocation="http://pinzservicewe.cloudapp.net/PinzAdminService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Com.Pinz.Server.DataAccess.Model" />
   <xs:element name="CreateCompany">
     <xs:complexType>
       <xs:sequence>

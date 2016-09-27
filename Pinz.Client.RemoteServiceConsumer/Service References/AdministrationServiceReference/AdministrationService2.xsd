@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Com.Pinz.Server.DataAccess.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Com.Pinz.Server.DataAccess.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://pinzservicewe.cloudapp.net/AdministrationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="UserDO">
     <xs:sequence>
       <xs:element minOccurs="0" name="CompanyId" type="ser:guid" />

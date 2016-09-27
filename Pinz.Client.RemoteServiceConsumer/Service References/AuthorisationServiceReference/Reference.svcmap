@@ -21,15 +21,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://pinzservicewe.cloudapp.net/AuthorisationService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AuthorisationService1.disco" MetadataType="Disco" ID="9d258200-ecd4-4f70-b965-5e6294282612" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?disco" />
-    <MetadataFile FileName="AuthorisationService3.xsd" MetadataType="Schema" ID="7174b6a6-08ac-484e-90d0-885f6a0a2d36" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd1" />
-    <MetadataFile FileName="AuthorisationService31.xsd" MetadataType="Schema" ID="9d8f0b22-07ed-426f-8584-23a4976ea87a" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd0" />
-    <MetadataFile FileName="AuthorisationService32.xsd" MetadataType="Schema" ID="49c4d77f-28e8-4c83-935d-fbd3db858219" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd2" />
-    <MetadataFile FileName="AuthorisationService2.wsdl" MetadataType="Wsdl" ID="13545733-6b89-405c-aaa0-2f2fcc0d1c14" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="AuthorisationService21.wsdl" MetadataType="Wsdl" ID="56d4adf0-9cba-4e15-b456-8aacf4962e3c" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?wsdl" />
+    <MetadataFile FileName="AuthorisationService.xsd" MetadataType="Schema" ID="aae9ad08-054b-4dae-af2b-dd86ead88d47" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AuthorisationService1.xsd" MetadataType="Schema" ID="3c67e262-e491-4c1b-bf33-5ed632343304" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AuthorisationService.wsdl" MetadataType="Wsdl" ID="2a81b23c-7d6f-42c0-a889-2f202b3158e6" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?wsdl" />
+    <MetadataFile FileName="AuthorisationService.disco" MetadataType="Disco" ID="3ad9ffe8-fe19-476f-929f-0edb0d904aea" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?disco" />
+    <MetadataFile FileName="AuthorisationService1.wsdl" MetadataType="Wsdl" ID="cc581092-19cd-45f5-80da-3f4662530d9b" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AuthorisationService2.xsd" MetadataType="Schema" ID="7358bf22-df9e-4f87-b1ea-74e5961dfdf8" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

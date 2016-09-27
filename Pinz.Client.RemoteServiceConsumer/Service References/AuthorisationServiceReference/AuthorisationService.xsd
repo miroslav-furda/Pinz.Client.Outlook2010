@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://pinzonline.com/services" elementFormDefault="qualified" targetNamespace="http://pinzonline.com/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Com.Pinz.Server.DataAccess.Model" />
+  <xs:import schemaLocation="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://pinzservicewe.cloudapp.net/AuthorisationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Com.Pinz.Server.DataAccess.Model" />
   <xs:element name="IsUserProjectAdmin">
     <xs:complexType>
       <xs:sequence>

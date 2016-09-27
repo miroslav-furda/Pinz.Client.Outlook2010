@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="XaRyc4XSg/lU2uyH+P0rYswcFGE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="yADFQS1YqONS+q5/LYxYQzbe0cU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IPinzAdminService">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IPinzAdminService" contract="PinzAdminServiceReference.IPinzAdminService" bindingType="wsHttpBinding" address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/PinzAdminService.svc/service" bindingConfiguration="WSHttpBinding_IPinzAdminService">
+    <endpoint name="WSHttpBinding_IPinzAdminService" contract="PinzAdminServiceReference.IPinzAdminService" bindingType="wsHttpBinding" address="http://pinzservicewe.cloudapp.net/PinzAdminService.svc/service" bindingConfiguration="WSHttpBinding_IPinzAdminService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/PinzAdminService.svc/service</serializedValue>
+          <serializedValue>http://pinzservicewe.cloudapp.net/PinzAdminService.svc/service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

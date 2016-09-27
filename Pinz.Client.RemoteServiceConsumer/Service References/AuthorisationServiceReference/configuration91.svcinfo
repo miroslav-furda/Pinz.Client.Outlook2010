@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="kB4FG4HSikk8jiKm5ugX70e34YQ=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="JBnF7m7RuTp/qaaUU7uGWy9Glno=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IAuthorisationService">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IAuthorisationService" contract="AuthorisationServiceReference.IAuthorisationService" bindingType="wsHttpBinding" address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc/service" bindingConfiguration="WSHttpBinding_IAuthorisationService">
+    <endpoint name="WSHttpBinding_IAuthorisationService" contract="AuthorisationServiceReference.IAuthorisationService" bindingType="wsHttpBinding" address="http://pinzservicewe.cloudapp.net/AuthorisationService.svc/service" bindingConfiguration="WSHttpBinding_IAuthorisationService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc/service</serializedValue>
+          <serializedValue>http://pinzservicewe.cloudapp.net/AuthorisationService.svc/service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

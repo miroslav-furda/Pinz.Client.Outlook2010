@@ -21,15 +21,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net//AdministrationService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://pinzservicewe.cloudapp.net//AdministrationService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AdministrationService3.xsd" MetadataType="Schema" ID="2914d478-60bd-47ff-ac58-7901b8e555f0" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?xsd=xsd2" />
-    <MetadataFile FileName="AdministrationService31.xsd" MetadataType="Schema" ID="4fce0aac-f3cd-4f42-9102-6dff0fc37d94" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?xsd=xsd1" />
-    <MetadataFile FileName="AdministrationService1.disco" MetadataType="Disco" ID="70e88fb5-8e75-4af6-a7db-609ee4b7a8ea" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?disco" />
-    <MetadataFile FileName="AdministrationService2.wsdl" MetadataType="Wsdl" ID="24a3699e-d014-4d06-b11c-a811351d78b9" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?wsdl" />
-    <MetadataFile FileName="AdministrationService21.wsdl" MetadataType="Wsdl" ID="0f0e2d63-1f49-4fc4-bdb7-54f2f6695737" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="AdministrationService32.xsd" MetadataType="Schema" ID="d75a4c21-6bf6-4346-88b9-d4a70164ad5e" SourceId="1" SourceUrl="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AdministrationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AdministrationService.xsd" MetadataType="Schema" ID="a658bdc6-d92f-4d83-b2b8-aaed8c20036a" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AdministrationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AdministrationService.wsdl" MetadataType="Wsdl" ID="c72e7921-a02c-49f0-ac7b-d4515c82ee9f" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AdministrationService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AdministrationService1.xsd" MetadataType="Schema" ID="e3a66a1d-178a-403c-bb6e-1defbc9f35b8" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AdministrationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AdministrationService.disco" MetadataType="Disco" ID="8a357b42-bee2-4397-a3fd-5e2b3bebde40" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AdministrationService.svc?disco" />
+    <MetadataFile FileName="AdministrationService1.wsdl" MetadataType="Wsdl" ID="8cb191ee-5270-4da9-98a3-0d0447bb93e7" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AdministrationService.svc?wsdl" />
+    <MetadataFile FileName="AdministrationService2.xsd" MetadataType="Schema" ID="5cedc261-637a-4303-8b5e-600c9640483e" SourceId="1" SourceUrl="http://pinzservicewe.cloudapp.net/AdministrationService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

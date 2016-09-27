@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://pinzonline.com/services" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AuthorisationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorisationService_policy">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PinzAdminService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPinzAdminService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -105,7 +105,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorisationService_IsUserProjectAdmin_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPinzAdminService_CreateCompany_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -124,7 +124,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorisationService_IsUserProjectAdmin_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPinzAdminService_CreateCompany_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -143,7 +143,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorisationService_IsUserComapnyAdmin_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPinzAdminService_UpdateCompany_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -162,7 +162,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorisationService_IsUserComapnyAdmin_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPinzAdminService_UpdateCompany_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -181,7 +181,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorisationService_ReadUserByEmail_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPinzAdminService_DeleteCompany_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -200,7 +200,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorisationService_ReadUserByEmail_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPinzAdminService_DeleteCompany_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -219,50 +219,87 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsdl:import namespace="http://pinzonline.com/services" location="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc?wsdl=wsdl0" />
-  <wsdl:types />
-  <wsdl:binding name="WSHttpBinding_IAuthorisationService" type="i0:IAuthorisationService">
-    <wsp:PolicyReference URI="#WSHttpBinding_IAuthorisationService_policy" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://pinzservicewe.cloudapp.net/PinzAdminService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://pinzservicewe.cloudapp.net/PinzAdminService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://pinzservicewe.cloudapp.net/PinzAdminService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Com.Pinz.Server.DataAccess.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPinzAdminService_CreateCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompany" />
+  </wsdl:message>
+  <wsdl:message name="IPinzAdminService_CreateCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPinzAdminService_UpdateCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompany" />
+  </wsdl:message>
+  <wsdl:message name="IPinzAdminService_UpdateCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPinzAdminService_DeleteCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompany" />
+  </wsdl:message>
+  <wsdl:message name="IPinzAdminService_DeleteCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompanyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPinzAdminService">
+    <wsdl:operation name="CreateCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPinzAdminService/CreateCompany" message="tns:IPinzAdminService_CreateCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPinzAdminService/CreateCompanyResponse" message="tns:IPinzAdminService_CreateCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPinzAdminService/UpdateCompany" message="tns:IPinzAdminService_UpdateCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPinzAdminService/UpdateCompanyResponse" message="tns:IPinzAdminService_UpdateCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPinzAdminService/DeleteCompany" message="tns:IPinzAdminService_DeleteCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPinzAdminService/DeleteCompanyResponse" message="tns:IPinzAdminService_DeleteCompany_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IPinzAdminService" type="tns:IPinzAdminService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IPinzAdminService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="IsUserProjectAdmin">
-      <soap12:operation soapAction="http://pinzonline.com/services/IAuthorisationService/IsUserProjectAdmin" style="document" />
+    <wsdl:operation name="CreateCompany">
+      <soap12:operation soapAction="http://tempuri.org/IPinzAdminService/CreateCompany" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthorisationService_IsUserProjectAdmin_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPinzAdminService_CreateCompany_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthorisationService_IsUserProjectAdmin_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPinzAdminService_CreateCompany_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsUserComapnyAdmin">
-      <soap12:operation soapAction="http://pinzonline.com/services/IAuthorisationService/IsUserComapnyAdmin" style="document" />
+    <wsdl:operation name="UpdateCompany">
+      <soap12:operation soapAction="http://tempuri.org/IPinzAdminService/UpdateCompany" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthorisationService_IsUserComapnyAdmin_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPinzAdminService_UpdateCompany_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthorisationService_IsUserComapnyAdmin_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPinzAdminService_UpdateCompany_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReadUserByEmail">
-      <soap12:operation soapAction="http://pinzonline.com/services/IAuthorisationService/ReadUserByEmail" style="document" />
+    <wsdl:operation name="DeleteCompany">
+      <soap12:operation soapAction="http://tempuri.org/IPinzAdminService/DeleteCompany" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthorisationService_ReadUserByEmail_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPinzAdminService_DeleteCompany_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IAuthorisationService_ReadUserByEmail_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IPinzAdminService_DeleteCompany_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="AuthorisationService">
-    <wsdl:port name="WSHttpBinding_IAuthorisationService" binding="tns:WSHttpBinding_IAuthorisationService">
-      <soap12:address location="http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc/service" />
+  <wsdl:service name="PinzAdminService">
+    <wsdl:port name="WSHttpBinding_IPinzAdminService" binding="tns:WSHttpBinding_IPinzAdminService">
+      <soap12:address location="http://pinzservicewe.cloudapp.net/PinzAdminService.svc/service" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://fd3eeff9c25248d0ab04261c0d5ef0b1.cloudapp.net/AuthorisationService.svc/service</wsa10:Address>
+        <wsa10:Address>http://pinzservicewe.cloudapp.net/PinzAdminService.svc/service</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
             <X509Data>
