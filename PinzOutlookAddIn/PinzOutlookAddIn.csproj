@@ -34,10 +34,10 @@
     <PublishUrl>ftp://ftp.pinzonline.com/public_html/download/</PublishUrl>
     <InstallUrl>http://www.pinzonline.com/download/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.7</ApplicationVersion>
+    <ApplicationVersion>1.0.1.1</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateInterval>7</UpdateInterval>
+    <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>PinzOutlookAddIn</ProductName>
     <PublisherName />
