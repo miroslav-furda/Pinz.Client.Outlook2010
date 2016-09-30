@@ -29,6 +29,33 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DevDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DevDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProdWeStageDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProdWeStageDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProdWeProdDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProdWeProdDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
@@ -124,15 +151,15 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Pinz.Client.RemoteServiceConsumer.nuspec" />
-    <None Include="Service References\AdministrationServiceReference\AdministrationService.wsdl" />
-    <None Include="Service References\AdministrationServiceReference\AdministrationService.xsd">
+    <None Include="Service References\AdministrationServiceReference\AdministrationService2.wsdl" />
+    <None Include="Service References\AdministrationServiceReference\AdministrationService21.wsdl" />
+    <None Include="Service References\AdministrationServiceReference\AdministrationService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AdministrationServiceReference\AdministrationService1.wsdl" />
-    <None Include="Service References\AdministrationServiceReference\AdministrationService1.xsd">
+    <None Include="Service References\AdministrationServiceReference\AdministrationService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AdministrationServiceReference\AdministrationService2.xsd">
+    <None Include="Service References\AdministrationServiceReference\AdministrationService32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AdministrationServiceReference\Com.Pinz.Client.RemoteServiceConsumer.AdministrationServiceReference.CompanyDO.datasource">
@@ -268,9 +295,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AdministrationServiceReference\AdministrationService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\AuthorisationServiceReference\AuthorisationService.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -278,6 +302,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\TaskServiceReference\TaskService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdministrationServiceReference\AdministrationService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
