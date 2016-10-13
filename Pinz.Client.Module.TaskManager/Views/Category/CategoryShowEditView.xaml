@@ -23,7 +23,7 @@
             <prism:PopupWindowAction  CenterOverAssociatedObject="True" IsModal="True" />
         </prism:InteractionRequestTrigger>
     </i:Interaction.Triggers>
-
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
