@@ -41,6 +41,9 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.AuthorisationServiceReference {
         private bool IsPinzSuperAdminField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Guid UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -127,6 +130,19 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.AuthorisationServiceReference {
                 if ((this.IsPinzSuperAdminField.Equals(value) != true)) {
                     this.IsPinzSuperAdminField = value;
                     this.RaisePropertyChanged("IsPinzSuperAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
                 }
             }
         }

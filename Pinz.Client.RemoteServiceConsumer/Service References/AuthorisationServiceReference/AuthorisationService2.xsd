@@ -9,6 +9,7 @@
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsCompanyAdmin" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsPinzSuperAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserId" type="ser:guid" />
     </xs:sequence>
   </xs:complexType>
