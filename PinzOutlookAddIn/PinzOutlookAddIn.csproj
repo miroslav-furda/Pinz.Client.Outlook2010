@@ -34,14 +34,14 @@
     <PublishUrl>ftp://ftp.pinzonline.com/public_html/download/</PublishUrl>
     <InstallUrl>http://www.pinzonline.com/download/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.2.2</ApplicationVersion>
+    <ApplicationVersion>1.0.3.3</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>PinzOutlookAddIn</ProductName>
-    <PublisherName />
-    <SupportUrl />
+    <PublisherName>PINZonline.com s.r.o.</PublisherName>
+    <SupportUrl>https://pinzonline.desk.com/</SupportUrl>
     <FriendlyName>PinzOutlookAddIn</FriendlyName>
     <OfficeApplicationDescription />
     <LoadBehavior>3</LoadBehavior>
