@@ -485,6 +485,12 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.AdministrationServiceReference {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://pinzonline.com/services", ConfigurationName="AdministrationServiceReference.IAdministrationService")]
     public interface IAdministrationService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://pinzonline.com/services/IAdministrationService/CanCreateProject", ReplyAction="http://pinzonline.com/services/IAdministrationService/CanCreateProjectResponse")]
+        bool CanCreateProject(System.Guid companyId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://pinzonline.com/services/IAdministrationService/CanCreateProject", ReplyAction="http://pinzonline.com/services/IAdministrationService/CanCreateProjectResponse")]
+        System.Threading.Tasks.Task<bool> CanCreateProjectAsync(System.Guid companyId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://pinzonline.com/services/IAdministrationService/InviteNewUser", ReplyAction="http://pinzonline.com/services/IAdministrationService/InviteNewUserResponse")]
         Com.Pinz.Client.RemoteServiceConsumer.AdministrationServiceReference.UserDO InviteNewUser(string newUserEmail, System.Guid projectId, System.Guid invitingUserId);
         
@@ -629,6 +635,14 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.AdministrationServiceReference {
         
         public AdministrationServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool CanCreateProject(System.Guid companyId) {
+            return base.Channel.CanCreateProject(companyId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CanCreateProjectAsync(System.Guid companyId) {
+            return base.Channel.CanCreateProjectAsync(companyId);
         }
         
         public Com.Pinz.Client.RemoteServiceConsumer.AdministrationServiceReference.UserDO InviteNewUser(string newUserEmail, System.Guid projectId, System.Guid invitingUserId) {

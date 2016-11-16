@@ -22,6 +22,11 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.ServiceImpl
             this.clientFactory = clientFactory;
         }
 
+        public async Threading.Task<bool> CanCreateNewProject(Guid companyId)
+        {
+            return await adminChannel.CanCreateProjectAsync(companyId);
+        }
+
         public async Threading.Task<User> InviteNewUserAsync(string newUserEmail, Project project, User invitingUser)
         {
             AdministrationServiceReference.UserDO user = await adminChannel.InviteNewUserAsync(newUserEmail, project.ProjectId, invitingUser.UserId);

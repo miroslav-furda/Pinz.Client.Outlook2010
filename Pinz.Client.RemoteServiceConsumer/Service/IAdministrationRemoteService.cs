@@ -7,6 +7,8 @@ namespace Com.Pinz.Client.RemoteServiceConsumer.Service
 {
     public interface IAdministrationRemoteService
     {
+        Threading.Task<bool> CanCreateNewProject(Guid companyId);
+
         Threading.Task<User> InviteNewUserAsync(string newUserEmail, Project project, User invitingUser);
 
         Threading.Task SetProjectAdminFlagAsync(Guid userId, Guid projectId, bool isProjectAdmin);

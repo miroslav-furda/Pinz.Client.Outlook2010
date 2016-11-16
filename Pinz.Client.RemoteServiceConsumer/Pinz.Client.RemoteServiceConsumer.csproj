@@ -151,15 +151,15 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Pinz.Client.RemoteServiceConsumer.nuspec" />
-    <None Include="Service References\AdministrationServiceReference\AdministrationService.wsdl" />
-    <None Include="Service References\AdministrationServiceReference\AdministrationService.xsd">
+    <None Include="Service References\AdministrationServiceReference\AdministrationService2.wsdl" />
+    <None Include="Service References\AdministrationServiceReference\AdministrationService21.wsdl" />
+    <None Include="Service References\AdministrationServiceReference\AdministrationService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AdministrationServiceReference\AdministrationService1.wsdl" />
-    <None Include="Service References\AdministrationServiceReference\AdministrationService1.xsd">
+    <None Include="Service References\AdministrationServiceReference\AdministrationService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AdministrationServiceReference\AdministrationService2.xsd">
+    <None Include="Service References\AdministrationServiceReference\AdministrationService32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AdministrationServiceReference\Com.Pinz.Client.RemoteServiceConsumer.AdministrationServiceReference.CompanyDO.datasource">
@@ -304,7 +304,7 @@
     <None Include="Service References\TaskServiceReference\TaskService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AdministrationServiceReference\AdministrationService.disco" />
+    <None Include="Service References\AdministrationServiceReference\AdministrationService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

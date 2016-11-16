@@ -124,6 +124,7 @@ namespace Com.Pinz.Client.Module.Administration.Model
         public ObservableCollection<User> Users { get; set; }
 
         private string _originalCompanyName;
+        private bool _canCreateNewProject;
 
         private readonly IAdministrationRemoteService _adminService;
         private readonly IPinzAdminRemoteService _pinzAdminService;
@@ -149,7 +150,7 @@ namespace Com.Pinz.Client.Module.Administration.Model
             CancelEditCompany = new DelegateCommand(OnCancelEditCompany, IsCompanyAdmin);
             UpdateCompany = new AwaitableDelegateCommand(OnUpdateCompany, IsCompanyAdmin);
 
-            NewProject = new DelegateCommand(OnNewProject, IsCompanyAdmin);
+            NewProject = new DelegateCommand(OnNewProject, CanCreateNewProject);
             StartEditProject = new DelegateCommand(OnEditProject, IsCompanyAdmin);
             DeleteProject = new AwaitableDelegateCommand(OnDeleteProject, IsCompanyAdmin);
             UpdateProject = new AwaitableDelegateCommand(OnSaveProject, IsCompanyAdmin);
@@ -181,6 +182,9 @@ namespace Com.Pinz.Client.Module.Administration.Model
                 var users = await _adminService.ReadAllUsersForCompanyAsync(Company.CompanyId);
                 Users.Clear();
                 Users.AddRange(users);
+
+                _canCreateNewProject = await _adminService.CanCreateNewProject(Company.CompanyId);
+                NewProject.RaiseCanExecuteChanged();
             }
             catch (TimeoutException timeoutEx)
             {
@@ -233,6 +237,11 @@ namespace Com.Pinz.Client.Module.Administration.Model
 
         private string originalProjectTitle;
 
+        private bool CanCreateNewProject()
+        {
+            return IsCompanyAdmin() && _canCreateNewProject;
+        }
+
         private void OnNewProject()
         {
             var newProject = new Project
@@ -257,7 +266,11 @@ namespace Com.Pinz.Client.Module.Administration.Model
                 try
                 {
                     if (SelectedProject.ProjectId == Guid.Empty)
+                    {
                         SelectedProject = await _adminService.CreateProjectAsync(_selectedProject);
+                        _canCreateNewProject = await _adminService.CanCreateNewProject(Company.CompanyId);
+                        NewProject.RaiseCanExecuteChanged();
+                    }
                     else
                         await _adminService.UpdateProjectAsync(_selectedProject);
                     if (!Projects.Contains(SelectedProject))
@@ -286,6 +299,8 @@ namespace Com.Pinz.Client.Module.Administration.Model
                         if (SelectedProject.ProjectId != Guid.Empty)
                             await _adminService.DeleteProjectAsync(SelectedProject);
                         Projects.Remove(SelectedProject);
+                        _canCreateNewProject = await _adminService.CanCreateNewProject(Company.CompanyId);
+                        NewProject.RaiseCanExecuteChanged();
                         SelectedProject = null;
                         IsProjectEditorVisible = false;
                     }

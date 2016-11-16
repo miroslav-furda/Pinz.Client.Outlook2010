@@ -105,6 +105,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAdministrationService_CanCreateProject_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAdministrationService_CanCreateProject_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IAdministrationService_InviteNewUser_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -751,11 +789,22 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsdl:import namespace="http://pinzonline.com/services" location="http://pinzservicewe.cloudapp.net/AdministrationService.svc?wsdl=wsdl0" />
+  <wsdl:import namespace="http://pinzonline.com/services" location="http://pinzdevservice.cloudapp.net/AdministrationService.svc?wsdl=wsdl0" />
   <wsdl:types />
   <wsdl:binding name="WSHttpBinding_IAdministrationService" type="i0:IAdministrationService">
     <wsp:PolicyReference URI="#WSHttpBinding_IAdministrationService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CanCreateProject">
+      <soap12:operation soapAction="http://pinzonline.com/services/IAdministrationService/CanCreateProject" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAdministrationService_CanCreateProject_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAdministrationService_CanCreateProject_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InviteNewUser">
       <soap12:operation soapAction="http://pinzonline.com/services/IAdministrationService/InviteNewUser" style="document" />
       <wsdl:input>
@@ -946,13 +995,13 @@
   </wsdl:binding>
   <wsdl:service name="AdministrationService">
     <wsdl:port name="WSHttpBinding_IAdministrationService" binding="tns:WSHttpBinding_IAdministrationService">
-      <soap12:address location="http://pinzservicewe.cloudapp.net/AdministrationService.svc/service" />
+      <soap12:address location="http://pinzdevservice.cloudapp.net/AdministrationService.svc/service" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://pinzservicewe.cloudapp.net/AdministrationService.svc/service</wsa10:Address>
+        <wsa10:Address>http://pinzdevservice.cloudapp.net/AdministrationService.svc/service</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
             <X509Data>
-              <X509Certificate>MIIDKjCCApOgAwIBAgIJAIqAga0UR9XkMA0GCSqGSIb3DQEBBQUAMIGtMSMwIQYDVQQDDBpwaW56c2VydmljZXdlLmNsb3VkYXBwLm5ldDELMAkGA1UEBhMCU0sxETAPBgNVBAgMCFNsb3Zha2lhMQ8wDQYDVQQHDAZLb3NpY2UxFzAVBgNVBAoMDlBJTlpvbmxpbmUuY29tMQ4wDAYDVQQLDAVBenVyZTEsMCoGCSqGSIb3DQEJARYdbWlyb3NsYXYuZnVyZGFAcGluem9ubGluZS5jb20wHhcNMTYwOTI5MTIxNTU3WhcNMTcwOTI5MTIxNTU3WjCBrTEjMCEGA1UEAwwacGluenNlcnZpY2V3ZS5jbG91ZGFwcC5uZXQxCzAJBgNVBAYTAlNLMREwDwYDVQQIDAhTbG92YWtpYTEPMA0GA1UEBwwGS29zaWNlMRcwFQYDVQQKDA5QSU5ab25saW5lLmNvbTEOMAwGA1UECwwFQXp1cmUxLDAqBgkqhkiG9w0BCQEWHW1pcm9zbGF2LmZ1cmRhQHBpbnpvbmxpbmUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1c53JZIYHgRwbZt270crDmy7E+8TJ7iIpX7k/FchIcJnvt1Kdxhu1B/t6jPI85eoQn3p+4OyVn1Ooey+zVlfjF9+GG3GIHxjqaAUHhVQ605CONax639To/Z1eAV9Uikuhg6LmgFfYTHu8l2XdcrpdDIuGptVKq/aYHaCSn46uPQIDAQABo1AwTjAdBgNVHQ4EFgQUT84+xV5pPcjOiYAuk+57rWtt9A0wHwYDVR0jBBgwFoAUT84+xV5pPcjOiYAuk+57rWtt9A0wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQAKkBnVDhf/YsrvzWns7Ji70RP90VFhsxyJoFq+scacNQsUmbxtpeFz1NgramOxoDdmjRye7ftxoz44HmO2TrBhC2SZB3PwvW8CGXPDgathy36tSGIk5U2Nvf9aQy3KylbxP33NRuLr0mwmgtcOGwzI+KJeaPv0sKUEmJGil1R+Og==</X509Certificate>
+              <X509Certificate>MIIDLDCCApWgAwIBAgIJAMADRv5ycQGrMA0GCSqGSIb3DQEBBQUAMIGuMSQwIgYDVQQDDBtwaW56ZGV2c2VydmljZS5jbG91ZGFwcC5uZXQxCzAJBgNVBAYTAlNLMREwDwYDVQQIDAhTbG92YWtpYTEPMA0GA1UEBwwGS29zaWNlMRcwFQYDVQQKDA5QSU5ab25saW5lLmNvbTEOMAwGA1UECwwFQXp1cmUxLDAqBgkqhkiG9w0BCQEWHW1pcm9zbGF2LmZ1cmRhQHBpbnpvbmxpbmUuY29tMB4XDTE2MDkyOTEyMjA0NVoXDTE3MDkyOTEyMjA0NVowga4xJDAiBgNVBAMMG3BpbnpkZXZzZXJ2aWNlLmNsb3VkYXBwLm5ldDELMAkGA1UEBhMCU0sxETAPBgNVBAgMCFNsb3Zha2lhMQ8wDQYDVQQHDAZLb3NpY2UxFzAVBgNVBAoMDlBJTlpvbmxpbmUuY29tMQ4wDAYDVQQLDAVBenVyZTEsMCoGCSqGSIb3DQEJARYdbWlyb3NsYXYuZnVyZGFAcGluem9ubGluZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAL+bKLiVup0HQHBD97HmPKan8ulIgKAyJ54HvLJj0MoasTsIKDqmSZY3QbDTMjYKo1R4gAWwZMD1TdWBmcLAItdlkMZI6+VMY05MV0DLRxRKVeQ/3leHjoXennar6aYGqUSntDGDHtcIzACkn7CH/3sdPQmbLUQm13Gc7a/2xwKFAgMBAAGjUDBOMB0GA1UdDgQWBBQ0lO3IVlm+VJQY1E+rUbdkupNFtTAfBgNVHSMEGDAWgBQ0lO3IVlm+VJQY1E+rUbdkupNFtTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBALpTYLGhLMAO16n7Lv0yaRgCfCB1pITXpBRRxeUvbyhwIa/FTUrcACVSATuEbFeXrLY9UGPRmuE/O2iepASyiwsH3SP7ypdffrLacsn/RjUUpLMCSq/xMgawHHeoZv6yr9rQ74q8hXNq6dLHOei3sKvz3DLv0rBiui4y41p0TVD/</X509Certificate>
             </X509Data>
           </KeyInfo>
         </Identity>
